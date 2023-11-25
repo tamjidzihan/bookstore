@@ -41,6 +41,8 @@ INSTALLED_APPS = [
 
     'userprofiles',
     'core',
+    'shop',
+    'order',
 ]
 
 MIDDLEWARE = [
@@ -77,10 +79,11 @@ WSGI_APPLICATION = 'bookstore.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+#neon.com login ID: tamjidzihan038@gmail.com
 DATABASES = {
   'default': {
     'ENGINE': 'django.db.backends.postgresql',
-    'NAME': 'neondb',
+    'NAME': 'bookstore',
     'USER': 'tamjidzihan038',
     'PASSWORD': 'UJ7rQ0SxgEOB',
     'HOST': 'ep-late-bird-13987363.ap-southeast-1.aws.neon.tech',
