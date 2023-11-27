@@ -10,4 +10,5 @@ class OrderAdmin(admin.ModelAdmin):
     list_display = ['id', 'user','paid',
                     'created', 'updated']
     list_filter = ['paid', 'created', 'updated']
+    autocomplete_fields = ['user']
     inlines = [OrderItemInline]
