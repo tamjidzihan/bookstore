@@ -22,6 +22,7 @@ a{
     color: var(--color-accent-primary);
 }
 
+
 /*  Navigation section */
 .container{
     position: relative;
@@ -136,13 +137,18 @@ a{
     align-items: center;
     border: 2px solid #feb651;
     margin-right: 3rem;
+    margin-top: 1rem;
     padding: 0 3rem ;
 }
 
+
 .fbook-image{
-width: 332px;
-height: 470px;
-padding: 2rem;
+    width: 400px;
+    height: 590px;
+    margin-right: 1.5rem;
+    box-shadow: 6px 5px 28px -4px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 6px 5px 28px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 6px 5px 28px -4px rgba(0,0,0,0.75);
 }
 
 .fbook-text{
@@ -227,7 +233,12 @@ padding: 2rem;
 }
 
 .rbook-image{
-    padding: 1rem;
+    width: 173px;
+    height: 240px;
+    margin: 1.5rem;
+    box-shadow: 6px 5px 28px -4px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 6px 5px 28px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 6px 5px 28px -4px rgba(0,0,0,0.75);
 }
 
 .rbook-title {
@@ -268,22 +279,18 @@ padding: 2rem;
 .view{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    width: 100vw;
 }
 
-.music-view{
+.music-view-content{
     background: var(--color-option);
-    height: 10rem;
     display: flex;
     flex-direction: column;
-    justify-content: end;
-    align-items: end;
+
 }
-
-
 .book-view{
     background: var(--color-secondary);
-    height: 10rem;
-    
+    display: flex; 
 }
