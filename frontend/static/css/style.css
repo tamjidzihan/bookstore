@@ -22,6 +22,10 @@ a{
     color: var(--color-accent-primary);
 }
 
+ul,li{
+    list-style: none;
+}
+
 
 /*  Navigation section */
 .container{
@@ -43,27 +47,26 @@ a{
     background: var(--color-option);
     border-radius: 25px;
     box-shadow: 3px 3px 10px -2px rgba(0,0,0,0.75);
+    overflow: hidden;
 }
  .item{
     padding: .7rem 4rem;
-    font-size: 1rem;
+    font-size: 1.2rem;
     transition:all 0.3s ease-in-out 0.2s;
  }
 
  .item:hover{
-    transform: scale(1.5);
+    transform: scale(1.4);
  }
 
 .search{
-    right: 0;
-    height: 20px;
+    height: 16px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    align-content: center;
     border: 2px solid white;
-    padding: 3px;
+    padding: 6px;
     border-radius: 30px;
 }
 
@@ -119,6 +122,8 @@ a{
     padding: 2rem 6rem;
 }
 
+/* Deal of the week sextion */
+
 .feature-book{
     flex: 1 1 60%;
     display: flex;
@@ -131,13 +136,14 @@ a{
 }
 
 .fbook-content{
+    align-items: center;
+    border: 2px solid #feb651;
+    border-radius: 20px;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
-    border: 2px solid #feb651;
     margin-right: 3rem;
-    margin-top: 1rem;
+    margin-top: 2.5rem;
     padding: 0 3rem ;
 }
 
@@ -185,6 +191,10 @@ a{
     color: var(--color-accent-option);
 }
 
+.fbook-countdown{
+    padding-top: 2rem;
+}
+
 .fbook-countdown-text{
     color: #FEB651;
 }
@@ -208,11 +218,26 @@ a{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding-right: 2rem;
+    padding-top: 3rem;
+    padding-right: 1rem;
 }
 
+.timer-digit{
+    font-size: 30px;
+}
 
+.timer-digit-box{
+    background: #E75291;
+    padding: 0 2rem;
+    border-radius: 20px;
+    
+}
 
+.timer-text{
+    font-size: .7rem;
+}
+
+/* Top rating section */
 
 .rating-book{
     flex: 1 1 40%;
@@ -277,20 +302,126 @@ a{
 /* View Sections */
 
 .view{
+    border-radius: 30px;
+    box-sizing: border-box;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
+    margin-left: 5rem;
+    margin-top: 3rem;
+    width: 90%;
+}
+
+.view-item{
+    flex: 1;
+    height: 25rem;
+    width: 45rem;
+    box-shadow: 6px 5px 28px -4px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 6px 5px 28px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 6px 5px 28px -4px rgba(0,0,0,0.75);
+    transition: flex .5s ease;
+}
+
+.view-item:hover{
+    flex: 5;
+}
+
+
+.music{
+    background: var(--color-option);
+    position: relative;
 }
 
 .music-view-content{
-    background: var(--color-option);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding-left: 1rem;
+}
+
+.music-view-content h1{
+    font-weight: lighter;
+    font-size: 7rem;
+    line-height: 0;
+    flex-wrap: nowrap;
+}
+
+
+
+.book{
+    background: var(--color-secondary);
+    position: relative;
+    color: var(--color-accent-secondary);
+    overflow: hidden;
+}
+
+.book-view-content{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-right: 1rem;
+    color: #4A4A4A;
+}
+
+.book-view-content h1{
+    font-weight: lighter;
+    font-size: 7rem;
+    color: var(--color-accent-secondary);
+    line-height: 0; 
+}
+
+.shorts{
     display: flex;
     flex-direction: column;
-
+    justify-content: center;
+    align-items: center;
+    padding: 5rem 0;
 }
-.book-view{
+
+.shorts h1,
+.shorts p{
+    line-height: 0;
+    font-weight: lighter;
+    
+}
+
+.shorts h1{
+    font-size:4rem;
+    letter-spacing: -3px;
+}
+
+.shorts{
+    font-size: 1.6rem;
+    letter-spacing: -1px;
+}
+
+.footer-container{
     background: var(--color-secondary);
-    display: flex; 
+    padding: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    height: 20%;
+    color: var(--color-accent-secondary);
+}
+
+.footer-container h3{
+    color: var(--color-accent-secondary);
+    font-weight: lighter;
+    font-size: 1.5rem;
+}
+
+.aboutus{
+    width: 20%;
+}
+
+.aboutus p{
+    line-height: 2rem;
+}
+
+.informations{
+    height: 50%;
+}
+
+
+.list-item{
+    
 }
