@@ -1,79 +1,133 @@
 {% extends "shop/base/base.html" %}
 {% load static %}
-{% load crispy_forms_tags %}
 {% block title %}
-{{ product.name }}
+{% if category %}{{ category.name }}{% else %}Products{% endif %}
 {% endblock %}
 {% block content %}
-<div class="bg-light py-3">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong
-          class="text-black">{{ product.name }}</strong></div>
-    </div>
-  </div>
-</div>
-
-<div class="site-section">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <img src="{{ product.image.url }}" alt="Image" class="img-fluid">
-      </div>
-      <div class="col-md-6">
-        <h2 class="text-black mr-2">{{ product.name }}</h2>
-        <p>{{ product.description|linebreaks }}</p>
-        <p><strong class="text-primary h4">${{ product.price }}</strong></p>
-        <div class="mt-5 col-md-5">
-          <form action="{% url ' cart:cart_add' product.id %}" method="post">
-            {% csrf_token %}
-            {{ cart_product_form|crispy }}
-            <input type="submit" class="buy-now btn btn-sm btn-primary" value="Add to cart">
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-
-<div class="site-section block-3 site-blocks-2 bg-light">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-7 site-section-heading text-center pt-4">
-        <h2>Featured Products</h2>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="nonloop-block-3 owl-carousel">
-          <div class="item">
-            <div class="block-4 text-center">
-              <figure class="block-4-image">
-                <img src="#" alt="Image placeholder" class="img-fluid">
-              </figure>
-              <div class="block-4-text p-4">
-                <h3><a href="#">T-Shirt Mockup</a></h3>
-                <p class="mb-0">Finding perfect products</p>
-                <p class="text-primary font-weight-bold">$50</p>
-              </div>
+<!-- <div class="books-container">
+    <div class="feature-book">
+        <h2 class="feature-heading">Deal of the week</h2>
+        {% for product in products %}
+        <div class="fbook-content">
+            <div class="fbook-image-container">
+                <a href="{{ product.get_absolute_url }}"><img class="fbook-image" src="{{ product.image.url }}"
+                        alt="books"></a>
             </div>
-          </div>
-          <div class="item">
-            <div class="block-4 text-center">
-              <figure class="block-4-image">
-                <img src="images/shoe_1.jpg" alt="Image placeholder" class="img-fluid">
-              </figure>
-              <div class="block-4-text p-4">
-                <h3><a href="#">Corater</a></h3>
-                <p class="mb-0">Finding perfect products</p>
-                <p class="text-primary font-weight-bold">$50</p>
-              </div>
+            <div class="fbook-text">
+                <div class="fbook-title">
+                    <h2>
+                        <a href="{{ product.get_absolute_url }}">
+                            {{ product.name }}
+                        </a>
+                    </h2>
+                </div>
+                <div class="fbook-arthur">
+                    <p>Marry Hoffma</p>
+                </div>
+                <span class="fbook-price">
+                    <h1 class="fbook-price-main">${{ product.price }}</h1>
+                    <h1 class="fbook-price-blur">$86.51</h1>
+                </span>
+                <div class="fbook-rating">
+                    <p>Rating 4.68/5</p>
+                </div>
+                <div class="fbook-countdown">
+                    <h2 class="fbook-countdown-text">Hurry up offer ends in:</h2>
+                    <div class="fbook-countdown-timer">
+                        <div class="timer-months timer">
+                            <div class="timer-digit-box">
+                                <p class="timer-digit">00</p>
+                            </div>
+                            <p class="timer-text">MONTHS</p>
+                        </div>
+                        <div class="timer-day timer">
+                            <div class="timer-digit-box">
+                                <p class="timer-digit">03</p>
+                            </div>
+                            <p class="timer-text">DAYS</p>
+                        </div>
+                        <div class="timer-minutes timer">
+                            <div class="timer-digit-box">
+                                <p class="timer-digit">22</p>
+                            </div>
+                            <p class="timer-text">MINUTES</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="fbook-footer">
+                    <p>Already Sold: 15pcs</p>
+                    <p>Reamining: 5pcs</p>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
+        {% endfor %}
     </div>
-  </div>
-</div>
+    <div class="rating-book">
+        <h2 class="rating-heading">Top Rating</h2>
+        <div class="rbook-content one">
+            <div>
+                <img class="rbook-image" src="./static/image/book.jpg" alt="books">
+            </div>
+            <div class="rbook-text">
+                <div class="rbook-title">
+                    <h2>Amazing Grace - 25th anniversary Edition</h2>
+                </div>
+                <div class="rbook-arthur">
+                    <p>Marry Hoffma</p>
+                </div>
+                <span class="rbook-price">
+                    <h1 class="rbook-price-main">$56</h1>
+                    <h1 class="rbook-price-blur">$86.51</h1>
+                </span>
+                <div class="rbook-rating">
+                    <p>Rating 4.68/5</p>
+                </div>
+
+            </div>
+        </div>
+        <div class="rbook-content two">
+            <div>
+                <img class="rbook-image" src="./static/image/book.png" alt="books">
+            </div>
+            <div class="rbook-text">
+                <div class="rbook-title">
+                    <h2>Amazing Grace - 25th anniversary Edition</h2>
+                </div>
+                <div class="rbook-arthur">
+                    <p>Marry Hoffma</p>
+                </div>
+                <span class="rbook-price">
+                    <h1 class="rbook-price-main">$56</h1>
+                    <h1 class="rbook-price-blur">$86.51</h1>
+                </span>
+                <div class="rbook-rating">
+                    <p>Rating 4.68/5</p>
+                </div>
+
+            </div>
+        </div>
+        <div class="rbook-content three">
+            <div>
+                <img class="rbook-image" src="./static/image/book.png" alt="books">
+            </div>
+            <div class="rbook-text">
+                <div class="rbook-title">
+                    <h2>Amazing Grace - 25th anniversary Edition</h2>
+                </div>
+                <div class="rbook-arthur">
+                    <p>Marry Hoffma</p>
+                </div>
+                <span class="rbook-price">
+                    <h1 class="rbook-price-main">$56</h1>
+                    <h1 class="rbook-price-blur">$86.51</h1>
+                </span>
+                <div class="rbook-rating">
+                    <p>Rating 4.68/5</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div> -->
+
 {% endblock %}
