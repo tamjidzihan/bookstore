@@ -16,10 +16,16 @@
 <body>
     <div class="site-wrap">
 
+        {% include 'shop/base/navbar.html' %}
+        {% include 'shop/home.html' %}
         {% block content %}
         {% endblock %}
+        {% include 'shop/base/view.html' %}
+
     </div>
+    {% include 'shop/base/footer.html' %}
     <script src="https://kit.fontawesome.com/4c494de999.js" crossorigin="anonymous"></script>
+    <script src="{% static 'js/app.js' %}"></script>
 </body>
 
 </html>

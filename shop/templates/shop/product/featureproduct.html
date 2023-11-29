@@ -1,35 +1,32 @@
 {% extends "shop/base/base.html" %}
 {% load static %}
-{% block title %}
-{% if category %}{{ category.name }}{% else %}Products{% endif %}
-{% endblock %}
 {% block content %}
 <div class="books-container">
     <div class="feature-book">
         <h2 class="feature-heading">Deal of the week</h2>
-        {% for product in products %}
+        {% if featured_product %}
         <div class="fbook-content">
             <div class="fbook-image-container">
-                <a href="{{ product.get_absolute_url }}"><img class="fbook-image" src="{{ product.image.url }}"
-                        alt="books"></a>
+                <a href="{{ featured_product.get_absolute_url }}"><img class="fbook-image"
+                        src="{{ featured_product.image.url }}" alt="books"></a>
             </div>
             <div class="fbook-text">
                 <div class="fbook-title">
                     <h2>
-                        <a href="{{ product.get_absolute_url }}">
-                            {{ product.title }}
+                        <a href="{{ featured_product.get_absolute_url }}">
+                            {{ featured_product.title }}
                         </a>
                     </h2>
                 </div>
                 <div class="fbook-arthur">
-                    <p>{{ product.arthur }}</p>
+                    <p>{{ featured_product.arthur }}</p>
                 </div>
                 <span class="fbook-price">
-                    <h1 class="fbook-price-main">${{ product.price }}</h1>
+                    <h1 class="fbook-price-main">${{ featured_product.price }}</h1>
                     <h1 class="fbook-price-blur">$86.51</h1>
                 </span>
                 <div class="fbook-rating">
-                    <p>Rating {{ product.rating }}/5</p>
+                    <p>Rating {{ featured_product.rating }}/5</p>
                 </div>
                 <div class="fbook-countdown">
                     <h2 class="fbook-countdown-text">Hurry up offer ends in:</h2>
@@ -60,74 +57,39 @@
                 </div>
             </div>
         </div>
-        {% endfor %}
+        {% endif %}
     </div>
     <div class="rating-book">
         <h2 class="rating-heading">Top Rating</h2>
+        {% for recently_updated_book in recently_updated_books %}
         <div class="rbook-content one">
-            <div>
-                <img class="rbook-image" src="./static/image/book.jpg" alt="books">
+            <div class="rbook-image-container">
+                <a href="{{ recently_updated_book.get_absolute_url }}">
+                    <img class="rbook-image" src="{{ recently_updated_book.image.url }}" alt="books">
+                </a>
             </div>
             <div class="rbook-text">
                 <div class="rbook-title">
-                    <h2>Amazing Grace - 25th anniversary Edition</h2>
+                    <h2>
+                        <a href="{{ recently_updated_book.get_absolute_url }}">
+                            {{ recently_updated_book.title }}
+                        </a>
+                    </h2>
                 </div>
                 <div class="rbook-arthur">
-                    <p>Marry Hoffma</p>
+                    <p>{{ recently_updated_book.arthur }}</p>
                 </div>
                 <span class="rbook-price">
-                    <h1 class="rbook-price-main">$56</h1>
+                    <h1 class="rbook-price-main">${{ recently_updated_book.price }}</h1>
                     <h1 class="rbook-price-blur">$86.51</h1>
                 </span>
                 <div class="rbook-rating">
-                    <p>Rating 4.68/5</p>
+                    <p>Rating {{ recently_updated_book.rating }}/5</p>
                 </div>
 
             </div>
         </div>
-        <div class="rbook-content two">
-            <div>
-                <img class="rbook-image" src="./static/image/book.png" alt="books">
-            </div>
-            <div class="rbook-text">
-                <div class="rbook-title">
-                    <h2>Amazing Grace - 25th anniversary Edition</h2>
-                </div>
-                <div class="rbook-arthur">
-                    <p>Marry Hoffma</p>
-                </div>
-                <span class="rbook-price">
-                    <h1 class="rbook-price-main">$56</h1>
-                    <h1 class="rbook-price-blur">$86.51</h1>
-                </span>
-                <div class="rbook-rating">
-                    <p>Rating 4.68/5</p>
-                </div>
-
-            </div>
-        </div>
-        <div class="rbook-content three">
-            <div>
-                <img class="rbook-image" src="./static/image/book.png" alt="books">
-            </div>
-            <div class="rbook-text">
-                <div class="rbook-title">
-                    <h2>Amazing Grace - 25th anniversary Edition</h2>
-                </div>
-                <div class="rbook-arthur">
-                    <p>Marry Hoffma</p>
-                </div>
-                <span class="rbook-price">
-                    <h1 class="rbook-price-main">$56</h1>
-                    <h1 class="rbook-price-blur">$86.51</h1>
-                </span>
-                <div class="rbook-rating">
-                    <p>Rating 4.68/5</p>
-                </div>
-
-            </div>
-        </div>
+        {% endfor %}
     </div>
-</div>
 
-{% endblock %}
+    {% endblock %}
