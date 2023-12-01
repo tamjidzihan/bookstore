@@ -61,35 +61,36 @@
     </div>
     <div class="rating-book">
         <h2 class="rating-heading">Top Rating</h2>
-        {% for recently_updated_book in recently_updated_books %}
-        <div class="rbook-content one">
-            <div class="rbook-image-container">
-                <a href="{{ recently_updated_book.get_absolute_url }}">
-                    <img class="rbook-image" src="{{ recently_updated_book.image.url }}" alt="books">
-                </a>
+        <div class="rbook-container">
+            {% for recently_updated_book in recently_updated_books %}
+            <div class="rbook-content">
+                <div class="rbook-image-container">
+                    <a href="{{ recently_updated_book.get_absolute_url }}">
+                        <img class="rbook-image" src="{{ recently_updated_book.image.url }}" alt="books">
+                    </a>
+                </div>
+                <div class="rbook-text">
+                    <div class="rbook-title">
+                        <h2>
+                            <a href="{{ recently_updated_book.get_absolute_url }}">
+                                {{ recently_updated_book.title }}
+                            </a>
+                        </h2>
+                    </div>
+                    <div class="rbook-arthur">
+                        <p>{{ recently_updated_book.arthur }}</p>
+                    </div>
+                    <span class="rbook-price">
+                        <h1 class="rbook-price-main">${{ recently_updated_book.price }}</h1>
+                        <h1 class="rbook-price-blur">$86.51</h1>
+                    </span>
+                    <div class="rbook-rating">
+                        <p>Rating {{ recently_updated_book.rating }}/5</p>
+                    </div>
+                </div>
             </div>
-            <div class="rbook-text">
-                <div class="rbook-title">
-                    <h2>
-                        <a href="{{ recently_updated_book.get_absolute_url }}">
-                            {{ recently_updated_book.title }}
-                        </a>
-                    </h2>
-                </div>
-                <div class="rbook-arthur">
-                    <p>{{ recently_updated_book.arthur }}</p>
-                </div>
-                <span class="rbook-price">
-                    <h1 class="rbook-price-main">${{ recently_updated_book.price }}</h1>
-                    <h1 class="rbook-price-blur">$86.51</h1>
-                </span>
-                <div class="rbook-rating">
-                    <p>Rating {{ recently_updated_book.rating }}/5</p>
-                </div>
-
-            </div>
+            {% endfor %}
         </div>
-        {% endfor %}
     </div>
 
     {% endblock %}

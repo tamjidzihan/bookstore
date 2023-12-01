@@ -9,8 +9,9 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['title','arthur' ,'slug', 'price','featureproduct','rating','catagory', 'available','image', 'created']
+    list_display = ['title','arthur' ,'catagory','slug', 'price','featureproduct','rating','image', 'created']
+    # autocomplete_fields = ['catagory']
     list_filter = ['available', 'created', 'updated']
-    list_editable = ['price', 'available']
+    list_editable = ['price','featureproduct']
     prepopulated_fields = {'slug': ('title',)}
     list_per_page = 50
