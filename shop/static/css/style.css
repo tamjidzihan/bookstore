@@ -194,7 +194,7 @@ ul,li{
     padding: 2rem 6rem;
 }
 
-/* Deal of the week sextion */
+/* Deal of the week section */
 
 .feature-book{
     flex: 1 1 60%;
@@ -222,18 +222,23 @@ ul,li{
 
 
 .fbook-image-container{ 
+    width: 400px;
+    height: 590px;
     margin-right: 1.5rem;
 }
 
 .fbook-image{
-    max-width: 400px;
-    max-height: 590px;
+    height: 100%;
+    width: 100%;
+    object-fit:fill;
     transition: .3s;
     border-radius: 15px;
     box-shadow: 6px 5px 28px -4px rgba(0,0,0,0.75);
     -webkit-box-shadow: 6px 5px 28px -4px rgba(0,0,0,0.75);
     -moz-box-shadow: 6px 5px 28px -4px rgba(0,0,0,0.75);
 }
+
+
 .fbook-image:hover{
     transform: scale(1.02);
 }
@@ -351,21 +356,23 @@ ul,li{
 
 .rbook-image-container{ 
     width: 173px;
-    min-height: 240px;
-    max-height: auto;
-    margin-right: 3rem;
+    height: 240px;
+    padding: 1rem;
+    margin: 1rem;
 }
 
 .rbook-image{
-    max-width: 100%;
-    height: auto;
-    margin: 1.5rem;
+    height: 100%;
+    width: 100%;
+    object-fit:fill;
+    transition: .3s;
+    margin-right: 1.5rem;
     border-radius: 15px;
     box-shadow: 6px 5px 28px -4px rgba(0,0,0,0.75);
     -webkit-box-shadow: 6px 5px 28px -4px rgba(0,0,0,0.75);
     -moz-box-shadow: 6px 5px 28px -4px rgba(0,0,0,0.75);
-    transition: .3s;
 }
+
 
 .rbook-image:hover{
     transform: scale(1.02);

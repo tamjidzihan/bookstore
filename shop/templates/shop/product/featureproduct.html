@@ -1,6 +1,7 @@
 {% extends "shop/base/base.html" %}
 {% load static %}
 {% block content %}
+{% include 'shop/home.html' %}
 <div class="books-container">
     <div class="feature-book">
         <h2 class="feature-heading">Deal of the week</h2>
@@ -92,5 +93,6 @@
             {% endfor %}
         </div>
     </div>
+    {% include 'shop/base/view.html' %}
 
     {% endblock %}
