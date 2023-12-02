@@ -12,6 +12,7 @@ body{
     background: var(--color-secondary);
     color: var(--color-accent-primary);
     box-sizing: border-box;
+    height: 200vh;
 }
 
 h1,h2,h3{
@@ -27,31 +28,60 @@ a{
 .hero-container{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     margin: 2rem;
+    
 }
 
+/*  hero main section */
+
 .hero-main{
-    flex: 1 1 60%;
+    width: 60rem;
+    height: 18rem;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     background: var(--color-primary);
     position: relative;
+    margin: 2.5rem;
 }
 
 .hero-main-text{
     display: flex;
     flex-direction: column;
+    align-items: start;
+    line-height: 0;
+    padding: 1.9rem;
+}
+
+.hero-main-text h2{
+    font-weight: 400;
+    font-size: 2.5rem;
+    line-height: 0;
+    padding: 1.3rem 0;
+    margin: 0;
+}
+
+.hero-main-text p{
+    padding-bottom: 1rem;
+}
+
+
+
+.hero-main::after{
+    content: "";
 }
 
 .hero-main-image{
     position: absolute;
     width: 20rem;
-    height: 23rem;
+    height: 20rem;
+    right: 1.2rem;
+    bottom: 1rem;
+    
 }
 .hero-main-image img{
     width: 100%;
@@ -59,10 +89,192 @@ a{
 }
 
 
+.hero-main-text a{
+    padding-top: 2.5rem;
+    display: inline-block;
+}
 
-.hero-sub{
-    flex-direction: 1 1 40%;
-    background: var(--color-option);
+.hero-main-text a::after{
+    content: "-->";
+    margin-left: 5px;
+    transition: margin-left .3s;
+}
+
+.hero-main-text a:hover::after{
+    margin-left: 10px;
 }
 
 
+
+/* hero sub section */
+.hero-sub{
+    width: 18rem;
+    height: 18rem;
+    background: var(--color-option);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: end;
+    position: relative;
+    text-align: end;
+    margin: 5rem 0;
+}
+
+.hero-sub::after{
+    content: "";
+}
+
+
+.hero-sub-text {
+    margin-right: 1rem;
+}
+
+.hero-sub-text h1,
+.hero-sub-text h2,
+.hero-sub-text p{
+    line-height: 0;
+}
+
+
+.hero-sub-text h1{
+font-weight: 400;
+font-size: 6rem;
+}
+
+.hero-sub-text h2{
+    font-weight: 400;
+    font-size: 2rem;
+    padding: .5rem 0;
+}
+
+
+.hero-sub-image{
+    width: 10rem;
+    height: 11rem;
+    position: absolute;
+    left: 0;
+    bottom: 1rem;
+}
+
+.hero-sub-image img{
+    width: 100%;
+    height: 100%;
+    
+}
+
+.hero-sub-text a{
+    padding-top: 2.5rem;
+    display: inline-block;
+}
+
+.hero-sub-text a::after{
+    content: "-->";
+    margin-left: 5px;
+    transition: margin-left .3s;
+}
+
+.hero-sub-text a:hover::after{
+    margin-left: 10px;
+}
+
+
+
+/* book list section */
+
+.booklist{
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+/* book list image section */
+
+.booklist-image{
+    width: 49%;
+    height: 100%;
+    background: var(--color-option);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.booklist-image-container{
+    height: 40rem;
+    width: 45rem;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.booklist-image-container img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: .3s;
+    
+    
+}
+
+.booklist-image-container img:hover{
+    transform: scale(1.1);
+}
+
+
+/* book list  details section */
+
+.booklist-details{
+    width: 49%;
+    height: 100%;
+    background: var(--color-primary);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 2rem;
+    overflow: hidden;
+}
+
+
+.booklist-title h2{
+    font-weight: 400;
+    font-size: 4rem;
+}
+
+.booklist-arthur p{
+    font-size: 2rem;
+    color: var(--color-accent-option);
+}
+
+
+.booklist-description p{
+    line-height: 2rem;
+    width: 60ch;
+}
+
+.booklist-price{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+.booklist-price-main{
+    font-weight: 400;
+    font-size: 3rem;
+    line-height: 0;
+}
+
+.booklist-price-blur{
+    font-size: 1.5rem;
+    font-weight: 400;
+    padding-left: 1rem;
+    color: var(--color-accent-option);
+}
+
+
+.booklist-rating{
+    padding-top: 6rem;
+    color: var(--color-accent-option);
+}
