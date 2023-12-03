@@ -12,7 +12,7 @@ body{
     background: var(--color-secondary);
     color: var(--color-accent-primary);
     box-sizing: border-box;
-    height: 200vh;
+    height: 300vh;
 }
 
 h1,h2,h3{
@@ -38,8 +38,8 @@ a{
 /*  hero main section */
 
 .hero-main{
-    width: 60rem;
-    height: 18rem;
+    width: 62rem;
+    height: 26rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -59,7 +59,7 @@ a{
 
 .hero-main-text h2{
     font-weight: 400;
-    font-size: 2.5rem;
+    font-size: 3rem;
     line-height: 0;
     padding: 1.3rem 0;
     margin: 0;
@@ -67,6 +67,7 @@ a{
 
 .hero-main-text p{
     padding-bottom: 1rem;
+    font-size: 1.5rem;
 }
 
 
@@ -77,8 +78,8 @@ a{
 
 .hero-main-image{
     position: absolute;
-    width: 20rem;
-    height: 20rem;
+    width: 30rem;
+    height: 31rem;
     right: 1.2rem;
     bottom: 1rem;
     
@@ -108,8 +109,8 @@ a{
 
 /* hero sub section */
 .hero-sub{
-    width: 18rem;
-    height: 18rem;
+    width: 25rem;
+    height: 25rem;
     background: var(--color-option);
     display: flex;
     flex-direction: column;
@@ -138,12 +139,12 @@ a{
 
 .hero-sub-text h1{
 font-weight: 400;
-font-size: 6rem;
+font-size: 10rem;
 }
 
 .hero-sub-text h2{
     font-weight: 400;
-    font-size: 2rem;
+    font-size: 3rem;
     padding: .5rem 0;
 }
 
@@ -182,7 +183,7 @@ font-size: 6rem;
 /* book list section */
 
 .booklist{
-    height: 100vh;
+    height: 70vh;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -194,20 +195,27 @@ font-size: 6rem;
 /* book list image section */
 
 .booklist-image{
-    width: 49%;
+    width: 40%;
     height: 100%;
     background: var(--color-option);
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    overflow: hidden;  
+    position: relative; 
 }
 
+
 .booklist-image-container{
-    height: 40rem;
-    width: 45rem;
+    height: 65%;
+    width: 65%;
     overflow: hidden;
     border-radius: 15px;
+    box-shadow: 6px 5px 28px -4px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 6px 5px 28px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 6px 5px 28px -4px rgba(0,0,0,0.75);
+    transition: flex .5s ease;
+    
 }
 
 .booklist-image-container img{
@@ -215,8 +223,6 @@ font-size: 6rem;
     width: 100%;
     object-fit: cover;
     transition: .3s;
-    
-    
 }
 
 .booklist-image-container img:hover{
@@ -227,7 +233,7 @@ font-size: 6rem;
 /* book list  details section */
 
 .booklist-details{
-    width: 49%;
+    width: 35%;
     height: 100%;
     background: var(--color-primary);
     display: flex;
@@ -235,23 +241,24 @@ font-size: 6rem;
     align-items: center;
     padding-left: 2rem;
     overflow: hidden;
+    position: relative;
 }
 
 
 .booklist-title h2{
     font-weight: 400;
-    font-size: 4rem;
+    font-size: 3rem;
 }
 
 .booklist-arthur p{
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: var(--color-accent-option);
 }
 
 
 .booklist-description p{
     line-height: 2rem;
-    width: 60ch;
+    width: 50ch;
 }
 
 .booklist-price{
@@ -277,4 +284,238 @@ font-size: 6rem;
 .booklist-rating{
     padding-top: 6rem;
     color: var(--color-accent-option);
+}
+
+
+/* flash sale section */
+
+.flashsale{
+    height: 60vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 10rem 14rem ;
+    overflow: hidden;
+    flex-wrap: wrap;  
+    background: var(--color-option);
+}
+
+/*  flash sale main section */
+.flashsale-main{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.flashsale-text h1{
+font-weight: 400;
+font-size: 4rem;
+}
+
+.flashsale-text p{
+    width: 60ch;
+    line-height: 2rem;
+}
+
+
+.flashsale-countdown-text{
+    color: #FEB651;
+}
+
+.flashsale-countdown-timer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.timer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 0;
+}
+
+.timer-digit{
+    font-size: 30px;
+}
+
+.timer-digit-box{
+    background: #E75291;
+    padding: 0 2rem;
+    border-radius: 20px;
+    
+}
+
+.flashsale-footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 3rem;
+    padding-right: 1rem;
+}
+
+
+.timer-text{
+    font-size: .7rem;
+}
+
+
+/* flash sale book section */
+
+.flashsale-books{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.flashsale-books-details{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 2rem;
+    overflow: hidden;
+}
+
+.flashsale-books-text{
+    text-align: end;
+}
+
+.flashsale-books-title h2{
+    font-weight: 400;
+    font-size: 2.5rem;
+}
+
+.flashsale-books-arthur p{
+    font-size: 1.5rem;
+    color: var(--color-accent-option);
+    line-height: 0;
+}
+
+
+.flashsale-books-price{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    
+}
+.flashsale-books-price-main{
+    font-weight: 400;
+    font-size: 3rem;
+    line-height: 0;
+    padding-left: 1rem;
+}
+
+.flashsale-books-price-blur{
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--color-accent-option);
+}
+
+
+.flashsale-books-rating{
+    padding-top: 6rem;
+    color: var(--color-accent-option);
+}
+
+
+
+.flashsale-books-image{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;   
+}
+
+.flashsale-books-image-container{
+    height: 65%;
+    width: 65%;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 6px 5px 28px -4px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 6px 5px 28px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 6px 5px 28px -4px rgba(0,0,0,0.75);
+    
+}
+
+.flashsale-books-image-container img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: .3s;
+}
+
+.flashsale-books-image-container img:hover{
+    transform: scale(1.1);
+}
+
+
+/* sliders effect */
+
+.next-btn{
+    position: absolute;
+    right: 3rem;
+    height: 4rem;
+    width: 4rem;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    cursor: pointer;
+    transform: 800ms;
+}
+
+.perv-btn{
+    position: absolute;
+    left: 3rem;
+    height: 4rem;
+    width: 4rem;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    cursor: pointer;
+    transform: 800ms;
+    }
+
+.next-btn:hover,
+.perv-btn:hover{
+    opacity: 0.8;
+}
+
+
+
+.navigation-dots{
+    display: flex;
+    height: 32px;
+    align-items: center;
+    justify-content: center;
+    margin: 16px 0;
+   
+}
+
+
+.single-dot {
+    background: rgb(126, 73, 73);
+    height: 16px;
+    width: 16px;
+    border: 2px solid black;
+    border-radius: 50%;
+    margin: 0 8px;
+    cursor: pointer;
+    transition: 500ms;
+
+}
+
+
+.single-dot.active{
+    background-color: lightblue;
+
 }
