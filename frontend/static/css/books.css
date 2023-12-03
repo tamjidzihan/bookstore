@@ -31,7 +31,7 @@ a{
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin: 2rem;
+    margin: 3rem 0;
     
 }
 
@@ -46,7 +46,7 @@ a{
     align-items: center;
     background: var(--color-primary);
     position: relative;
-    margin: 2.5rem;
+    margin: 1.5rem;
 }
 
 .hero-main-text{
@@ -119,6 +119,7 @@ a{
     position: relative;
     text-align: end;
     margin: 5rem 0;
+    margin-right: 1.5rem;
 }
 
 .hero-sub::after{
