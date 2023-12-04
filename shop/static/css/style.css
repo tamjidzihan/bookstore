@@ -299,14 +299,6 @@ ul,li{
     line-height: 0;
 }
 
-
-.fbook-footer{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding-top: 3rem;
-}
-
 .timer-digit{
     font-size: 30px;
 }
@@ -321,6 +313,14 @@ ul,li{
 .timer-text{
     font-size: .7rem;
 }
+
+.fbook-footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 3rem;
+}
+
 
 /* Top rating section */
 

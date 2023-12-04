@@ -44,8 +44,7 @@ a{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    /* background: var(--color-primary); */
-    background: var(--color-secondary);
+    background: var(--color-primary);
     position: relative;
     margin: 1.5rem;
 }

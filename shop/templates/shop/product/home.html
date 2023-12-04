@@ -1,15 +1,35 @@
 {% extends "shop/base/base.html" %}
 {% load static %}
 {% block content %}
-{% include 'shop/home.html' %}
+<div class="hero">
+    <div class="hero-fluide">
+        <div class="hero-text">
+            <h1>Page</h1>
+            <h1>Title</h1>
+        </div>
+        <div class="hero-subtext">
+            <p>A short brif here Example:</p>
+            <p>This months book recommendations from</p>
+            <p>XYZ, publishing Directoe at Usborne</p>
+        </div>
+        <a class="hero-link" href="/books">
+            <span class="hero-link-text">View Books
+            </span>
+        </a>
+    </div>
+    <div class="hero-image">
+        <img src="{% static 'image/family-hero.png'%}" alt="Hero Image">
+    </div>
+</div>
 <div class="books-container">
     <div class="feature-book">
         <h2 class="feature-heading">Deal of the week</h2>
         {% if featured_product %}
         <div class="fbook-content">
             <div class="fbook-image-container">
-                <a href="{{ featured_product.get_absolute_url }}"><img class="fbook-image"
-                        src="{{ featured_product.image.url }}" alt="books"></a>
+                <a href="{{ featured_product.get_absolute_url }}">
+                    <img class="fbook-image" src="{{ featured_product.image.url }}" alt="books">
+                </a>
             </div>
             <div class="fbook-text">
                 <div class="fbook-title">
@@ -93,6 +113,29 @@
             {% endfor %}
         </div>
     </div>
-    {% include 'shop/base/view.html' %}
+    <div class="view">
+        <a href="#" class="music view-item">
+            <div class="music-view-content">
+                <h1>Musics</h1>
+                <p>Lorem ipsum dolor sit amet consectetur..</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+            </div>
+        </a>
+        <a href="/books" class="book view-item">
+            <div class="book-view-content">
+                <h1>Books</h1>
+                <p>Lorem ipsum dolor sit amet.</p>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
+            </div>
+        </a>
+    </div>
+    <div class="shorts">
+        <h1>Lorem ipsum dolor sit.</h1>
+        <h1>Lorem ipsum dolor sit.</h1>
+        <h1>Lorem ipsum dolor sit amet.</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+        <p>Lorem ipsum dolor sit amet consectetur.</p>
+        <p>Lorem ipsum dolor sit amet.</p>
+    </div>
 
     {% endblock %}

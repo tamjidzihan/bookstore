@@ -5,6 +5,35 @@
 {% endblock %}
 {% block content %}
 
+<style>
+    body {
+        font-family: Inter, Arial, Helvetica, sans-serif;
+        background: var(--color-secondary);
+        color: var(--color-accent-primary);
+        box-sizing: border-box;
+    }
+
+    h1,
+    h2,
+    h3 {
+        color: var(--color-accent-primary);
+    }
+
+    a {
+        text-decoration: none;
+        color: var(--color-accent-primary);
+    }
+
+    .footer-container {
+        background: var(--color-primary);
+        color: var(--color-accent-option);
+    }
+
+    .footer-container h3 {
+        color: var(--color-accent-option);
+    }
+</style>
+
 <header>
     <div class="booklist-hero">
         <div class="hero-container">
@@ -44,8 +73,9 @@
                     d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z" />
             </svg>
         </div>
-        {% for product in products %}
+
         <div class="booklist-container">
+            {% for product in products %}
             <div class="booklist">
                 <div class="booklist-image">
                     <div class="booklist-image-container">
@@ -81,8 +111,9 @@
                     </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
-        {% endfor %}
+
         <div class="next-btn">
             <svg xmlns="http://www.w3.org/2000/svg" height="26" width="20" viewBox="0 0 320 512">
                 <path opacity="1" fill="#9552FD"
@@ -133,32 +164,38 @@
             </div>
         </div>
         <div class="flashsale-books">
+            {% if featured_product %}
             <div class="flashsale-books-details">
                 <div class="flashsale-books-text">
                     <div class="flashsale-books-detail-item1">
                         <div class="flashsale-books-title">
-                            <h2>Amazing Grace - 25th anniversary Edition</h2>
+                            <a href="{{ featured_product.get_absolute_url }}">
+                                <h2>{{ featured_product.title }}</h2>
+                            </a>
                         </div>
                     </div>
                     <div class="flashsale-books-detail-item2">
                         <div class="flashsale-books-arthur">
-                            <p>Marry Hoffma</p>
+                            <p>{{ featured_product.arthur }}</p>
                         </div>
                         <div class="flashsale-books-price">
                             <h1 class="flashsale-books-price-blur">$86.51</h1>
-                            <h1 class="flashsale-books-price-main">$56</h1>
+                            <h1 class="flashsale-books-price-main">${{ featured_product.price }}</h1>
                         </div>
                     </div>
                     <div class="flashsale-books-rating">
-                        <p>Rating 4.68/5</p>
+                        <p>Rating {{ featured_product.rating }}/5</p>
                     </div>
                 </div>
             </div>
             <div class="flashsale-books-image">
                 <div class="flashsale-books-image-container">
-                    <img src="static/image/book@2x.png" alt="flashsale book image">
+                    <a href="{{ featured_product.get_absolute_url }}">
+                        <img src="{{ featured_product.image.url }}" alt="flashsale book image">
+                    </a>
                 </div>
             </div>
+            {% endif %}
         </div>
 
     </div>
