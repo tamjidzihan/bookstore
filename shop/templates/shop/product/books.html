@@ -135,6 +135,7 @@ Books
                     quaerat
                     at non ratione!</p>
             </div>
+
             <!-- <div class="flashsale-countdown">
                 <h2 class="flashsale-countdown-text">Hurry up offer ends in:</h2>
                 <div class="flashsale-countdown-timer">
@@ -158,6 +159,7 @@ Books
                     </div>
                 </div>
             </div> -->
+
             {% for event in countdown_data %}
             <div class="fbook-countdown">
                 <h2 class="fbook-countdown-text">Hurry up, {{ event.event_name }} ends in:</h2>
@@ -222,7 +224,38 @@ Books
             </div>
             {% endif %}
         </div>
-
+    </div>
+    <div class="reders">
+        <div class="readers-text">
+            <div class="readers-item1">
+                <h1>Perfect for young readers</h1>
+                <p>who are just starting to explore the wonderful world of literature. </p>
+            </div>
+            <div class="readers-item2">
+                <p>Our collection features a wide range
+                    of exciting stories, from magical adventures to heartwarming tales of friendship and bravery. Each
+                    book
+                    is carefully crafted to engage young readers and encourage a love for reading.</p>
+            </div>
+            <div class="readers-item3">
+                <p> Our Children's Books are
+                    suitable for a variety of ages and reading levels, making them perfect for both beginning readers
+                    and
+                    more advanced ones. Each book is filled with vibrant illustrations and fun activities that will keep
+                    children entertained for hours on end.</p>
+            </div>
+            <div class="readers-item4">
+                <a href="#">
+                    <p>
+                        To learn more about our Children's Books and to start your
+                        child's reading adventure, click on the link.
+                    </p>
+                </a>
+            </div>
+        </div>
+        <div class="reders-image-container">
+            <img class="reders-image" src="{% static 'image/blob@2x.png'%}" alt="">
+        </div>
     </div>
 </main>
 

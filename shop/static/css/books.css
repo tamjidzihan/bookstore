@@ -196,7 +196,8 @@ font-size: 10rem;
     justify-content: center;
     align-items: center;
     position: relative;
-    transition: 800ms cubic-bezier(.21,.63,.82,.57);
+    /* transition: 800ms cubic-bezier(.21,.63,.82,.57); */
+    transition: 900ms;
 }
 
 
@@ -312,12 +313,12 @@ font-size: 10rem;
 /* flash sale section */
 
 .flashsale{
-    height: 60vh;
+    /* height: 60vh; */
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin: 10rem 14rem ;
+    margin: 10rem 14rem 5rem;
     overflow: hidden;
     flex-wrap: wrap;  
     background: var(--color-option);
@@ -398,7 +399,7 @@ font-size: 4rem;
     justify-content: space-around;
     align-items: center;
     padding-left: 2rem;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .flashsale-books-text{
@@ -515,8 +516,6 @@ font-size: 4rem;
     opacity: 0.8;
 }
 
-
-
 .navigation-dots{
     display: flex;
     height: 32px;
@@ -525,7 +524,6 @@ font-size: 4rem;
     margin: 16px 0;
    
 }
-
 
 .single-dot {
     background: var(--color-primary);
@@ -538,9 +536,53 @@ font-size: 4rem;
     transition: 500ms;
 
 }
-
-
 .single-dot.active{
     background-color: var(--color-accent-primary);
 
+}
+
+
+/*  Readers Section */
+
+
+.reders{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.reders p,
+.reders a{
+    width: 50ch;
+}
+
+.reders p{
+    color: var(--color-accent-secondary);
+    font-size: 1.7rem;
+}
+
+.reders a >p {
+    color: var(--color-option);
+    text-decoration: underline;
+}
+
+.readers-text{
+    display: flex;
+    flex-direction: column;
+}
+
+.readers-item1 h1{
+    font-weight: 400;
+    font-size: 3.5rem;
+    color: var(--color-option);
+}
+
+
+.reders-image-container{
+    aspect-ratio: 2/3;
+}
+
+.reders-image {
+    width: 100%;
+    height: 100%;
 }
