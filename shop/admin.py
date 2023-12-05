@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Product
+from .models import Category, Product,Events
 
 #register
 @admin.register(Category)
@@ -15,3 +15,9 @@ class ProductAdmin(admin.ModelAdmin):
     list_editable = ['price','featureproduct']
     prepopulated_fields = {'slug': ('title',)}
     list_per_page = 50
+
+
+@admin.register(Events)
+class EventsAdmin(admin.ModelAdmin):
+    list_display = ['event_name','event_time']
+    list_editable = ['event_time']
