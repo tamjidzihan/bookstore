@@ -87,6 +87,7 @@ a{
 .hero-main-image img{
     width: 100%;
     height: 100%;
+    filter: drop-shadow(2px 4px 6px black);
 }
 
 
@@ -456,8 +457,8 @@ font-size: 4rem;
 }
 
 .flashsale-books-image-container{
-    height: 65%;
-    width: 65%;
+    height: 24rem;
+    width: 23rem;
     overflow: hidden;
     border-radius: 15px;
     box-shadow: 6px 5px 28px -4px rgba(0,0,0,0.75);
@@ -549,6 +550,7 @@ font-size: 4rem;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .reders p,
@@ -585,4 +587,5 @@ font-size: 4rem;
 .reders-image {
     width: 100%;
     height: 100%;
+    filter: drop-shadow(2px 4px 6px black);
 }
