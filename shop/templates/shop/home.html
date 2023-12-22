@@ -1,26 +1,28 @@
 {% extends "shop/base/base.html" %}
 {% load static %}
 {% block content %}
-<div class="hero">
-    <div class="hero-fluide">
-        <div class="hero-text">
-            <h1>Page</h1>
-            <h1>Title</h1>
+<section>
+    <div class="container-lg my-5">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-lg-4 text-md-start ">
+                <h1>
+                    <div class="display-1 mb-0 pb-0">Page</div>
+                    <div class="display-1 mb-0 pb-0">Title</div>
+                </h1>
+                <p>A short brif here Example:</p>
+                <p>This months book recommendations from</p>
+                <p>XYZ, publishing Directoe at Usborne</p>
+                <a class="btn btn-danger px-4 btn-sm mt-4 " href="/books">View Books -></a>
+            </div>
+            <div class="col-lg-6 col-md-4 col-sm-6 text-center my-4">
+                <img class="img-fluid" src="{% static 'image/family-hero.png'%}" alt="family Cover">
+            </div>
         </div>
-        <div class="hero-subtext">
-            <p>A short brif here Example:</p>
-            <p>This months book recommendations from</p>
-            <p>XYZ, publishing Directoe at Usborne</p>
-        </div>
-        <a class="hero-link" href="/books">
-            <span class="hero-link-text">View Books
-            </span>
-        </a>
     </div>
-    <div class="hero-image">
-        <img src="{% static 'image/family-hero.png'%}" alt="Hero Image">
-    </div>
-</div>
+
+</section>
+
+
 <div class="books-container">
     <div class="feature-book">
         <h2 class="feature-heading">Deal of the week</h2>

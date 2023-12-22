@@ -154,45 +154,6 @@ ul,li{
 /* *************************************************** */
 
 
-/*  Hero section */
-
-.hero{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    align-items: center;
-    padding: 3rem;
-}
-
-.hero-fluide h1{
-    font-size: 6rem;
-    font-weight: lighter;
-    padding-bottom: 0;
-    line-height: 2.5rem;
-}
-.hero-link{
-    background: var(--color-option);
-    padding: .5rem 2rem;
-    border-radius: 20px;
-    margin-top: 20px;
-}
-
-.hero-link-text{
-    display: inline-block;
-    margin-top: 30px;
-}
-
-.hero-link-text::after{
-    content: "-->";
-    margin-left: 5px;
-    transition: margin-left .3s;
-}
-
-.hero-link-text:hover::after{
-    margin-left: 10px;
-}
-
 
 /* Book display section */
 
@@ -518,52 +479,6 @@ ul,li{
 .shorts{
     font-size: 1.6rem;
     letter-spacing: -1px;
-}
-
-.footer-container{
-    background: var(--color-secondary);
-    padding: 2rem 20rem 5rem 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    height: 20%;
-    color: var(--color-accent-secondary);
-}
-
-.footer-container h3{
-    color: var(--color-accent-secondary);
-    font-weight: lighter;
-    font-size: 1.5rem;
-    margin-bottom: 2px;
-}
-
-.footer-container  li{
-    line-height: 2rem;
-}
-
-.aboutus{
-    width: 20%;
-}
-
-.aboutus p{
-    line-height: 1.5rem;
-}
-
-.informations{
-    display: flex;
-    flex-direction: column;
-    height: 50%;
-}
-
-
-.informations-list-item{
-    display: flex;
-    flex-direction: row;
-}
-
-
-.list-item-two ul{
-    padding-left: 5rem;
 }
 
 

@@ -25,7 +25,7 @@ def index(request):
         })
 
     context = {'featured_product': featured_product,'recently_updated_books': recently_updated_books,'countdown_data': countdown_data}
-    return render(request, 'shop/product/home.html', context )
+    return render(request, 'shop/home.html', context )
 
 def product_list(request, category_slug=None):
     category = None
