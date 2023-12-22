@@ -226,9 +226,8 @@ ul,li{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    /* margin-right: 3rem; */
     margin-top: 4.5rem;
-    padding: 0 3rem ;
+    padding: 4rem ;
     
 }
 
