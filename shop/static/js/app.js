@@ -69,3 +69,13 @@ function setActiveClass() {
     navigationsDots.children[currentSlide].classList.add("active");
 
 }
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const burgerIcon = document.getElementById('burger-icon');
+    const navBar = document.getElementById('nav-bar');
+
+    burgerIcon.addEventListener('click', function () {
+        navBar.classList.toggle('show');
+    });
+});

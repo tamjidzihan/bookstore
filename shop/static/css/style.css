@@ -60,7 +60,6 @@ ul,li{
     width: 100%;
     height: 100%;
     object-fit: fill;
-    filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.75));
 }
 
 .nav-bar{
@@ -71,7 +70,6 @@ ul,li{
     flex-wrap: wrap;
     background: var(--color-option);
     border-radius: 25px;
-    box-shadow: 3px 3px 10px -2px rgba(0,0,0,0.75);
     overflow: hidden;
     position: relative;
 }
@@ -98,7 +96,7 @@ ul,li{
     position: relative;
   }
   .input-search{
-    height: 40px;
+    height: 50px;
     width: 40px;
     border-style: none;
     padding: 10px;
@@ -110,7 +108,6 @@ ul,li{
     background-color: var(--color-option);
     padding-right: 40px;
     color:#fff;
-    box-shadow: 3px 3px 10px -2px rgba(0,0,0,0.75);
   }
   .input-search::placeholder{
     color:rgba(255,255,255,.5);
@@ -120,7 +117,7 @@ ul,li{
   }
   .btn-search{
     width: 50px;
-    height: 60px;
+    height: 45px;
     border-style: none;
     font-size: 20px;
     font-weight: bold;
@@ -149,250 +146,17 @@ ul,li{
     border-bottom:1px solid rgba(255,255,255,.5);
     transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
   }
- 
-
-/* *************************************************** */
-
-
-
-/* Book display section */
-
-
-.books-container{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: start;
-    padding: 2rem 6rem;
-}
-
-/* Deal of the week section */
-
-.feature-book{
-    flex: 1 1 60%;
-    display: flex;
-    flex-direction: column;
-    
-}
-.feature-heading{
-    font-weight: lighter;
-    font-size: 3rem;
-}
-
-.fbook-content{
-    align-items: center;
-    border: 2px solid #feb651;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 4.5rem;
-    padding: 4rem ;
-    
-}
-
-
-.fbook-image-container{ 
-    width: 400px;
-    height: 590px;
-    margin-right: 1.5rem;
-}
-
-.fbook-image{
-    height: 100%;
-    width: 100%;
-    object-fit:fill;
-    transition: .3s;
-    border-radius: 15px;
-    box-shadow: 6px 5px 28px -4px rgba(0,0,0,0.75);
-    -webkit-box-shadow: 6px 5px 28px -4px rgba(0,0,0,0.75);
-    -moz-box-shadow: 6px 5px 28px -4px rgba(0,0,0,0.75);
-}
-
-
-.fbook-image:hover{
-    transform: scale(1.02);
-}
-
-.fbook-text{
-    padding: 5rem 0 4rem ;
-}
-
-.fbook-title {
-    font-size: 2rem;
-}
-.fbook-arthur{
-    color: var(--color-accent-option);
-}
-
-.fbook-price{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    
-}
-.fbook-price-main{
-    font-weight: lighter;
-    font-size: 3rem;
-    line-height: 0;
-}
-
-.fbook-price-blur{
-    font-size: 1rem;
-    font-weight: lighter;
-    padding-left: 1rem;
-    color: var(--color-accent-option);
-}
-
-.fbook-rating{
-    color: var(--color-accent-option);
-}
-
-.fbook-countdown{
-    padding-top: 2rem;
-}
-
-.fbook-countdown-text{
-    color: #FEB651;
-}
-
-.fbook-countdown-timer{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-}
-.timer{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    line-height: 0;
-}
-
-.timer-digit{
-    font-size: 30px;
-}
-
-.timer-digit-box{
-    background: #E75291;
-    padding: 0 2rem;
-    border-radius: 20px;
-    
-}
-
-.timer-text{
-    font-size: .7rem;
-}
-
-.fbook-footer{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding-top: 3rem;
-}
-
-
-/* Top rating section */
-
-.rating-book{
-    flex: 1 1 40%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-}
-
-.rating-heading{
-    font-weight: lighter;
-    font-size: 3rem;
-}
-.rbook-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
-    border: 2px solid #feb651;
-    border-radius: 20px;
-}
-.rbook-content{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin: 0 1rem;
-}
-
-
-.rbook-image-container{ 
-    width: 173px;
-    height: 240px;
-    padding: 1rem;
-    margin: 1rem;
-}
-
-.rbook-image{
-    height: 100%;
-    width: 100%;
-    object-fit:fill;
-    transition: .3s;
-    margin-right: 1.5rem;
-    border-radius: 15px;
-    box-shadow: 6px 5px 28px -4px rgba(0,0,0,0.75);
-    -webkit-box-shadow: 6px 5px 28px -4px rgba(0,0,0,0.75);
-    -moz-box-shadow: 6px 5px 28px -4px rgba(0,0,0,0.75);
-}
-
-
-.rbook-image:hover{
-    transform: scale(1.02);
-}
-
-.rbook-title {
-    font-size: 1rem;
-    width: 25ch;
-}
-.rbook-arthur{
-    color: var(--color-accent-option);
-}
-
-.rbook-price{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    line-height: 0;
-}
-
-.rbook-price-main{
-    font-weight: lighter;
-    font-size: 1.5rem;
-    line-height: 0;
-}
-
-
-.rbook-price-blur{
-    font-size: 1rem;
-    font-weight: lighter;
-    padding-left: 1rem;
-    color: var(--color-accent-option);
-}
-
-.rbook-rating{
-    color: var(--color-accent-option);
-}
 
 
 /* View Sections */
-
 .view{
-    border-radius: 30px;
+    padding: 0 10rem;
+}
+.view-container{
     box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
     margin-top: 7rem;
-    width: 100%;
 }
 
 .view-item{
@@ -405,9 +169,8 @@ ul,li{
 }
 
 .view-item:hover{
-    flex: 5;
+    flex: 20;
 }
-
 
 .music{
     background: var(--color-option);
@@ -427,10 +190,8 @@ ul,li{
     
     font-weight: lighter;
     font-size: 7rem;
-    line-height: 0;
     flex-wrap: nowrap;
 }
-
 
 
 .book{
@@ -453,32 +214,125 @@ ul,li{
     font-weight: lighter;
     font-size: 7rem;
     color: var(--color-accent-secondary);
-    line-height: 0; 
 }
 
-.shorts{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 5rem 0;
+
+
+@media (max-width: 1024px) {
+    .view{
+        padding: 0 ;
+    }
 }
 
-.shorts h1,
-.shorts p{
-    line-height: 0;
-    font-weight: lighter;
+@media (max-width: 890px) {
     
+    .view-item {
+        flex: 1 0 100%; /* Display items in a column */
+        height: 12rem;
+    }
+
+    .music,
+    .book {
+        flex: 1 0 100%; /* Full width for music and book items */
+    }
+
+    .view-item:hover{
+        flex: 1;
+    }
+
+    .music-view-content,
+    .book-view-content
+    {
+        position: absolute;
+        text-wrap: wrap;
+    }
+    
+    .music-view-content h1,
+    .book-view-content h1{
+        font-size: 3rem;
+    }
 }
 
-.shorts h1{
-    font-size:4rem;
-    letter-spacing: -3px;
+@media (max-width: 890px){
+   
+     
+    .music-view-content h1,
+    .book-view-content h1{
+        font-size: 2rem;
+    }
+    .music-view-content p,
+    .book-view-content p{
+        font-size: 1rem;
+        line-height: normal;
+    }
+
 }
 
-.shorts{
-    font-size: 1.6rem;
-    letter-spacing: -1px;
+
+
+
+
+
+
+/* Add these styles for the burger icon */
+.burger-icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
 }
 
+.bar {
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    margin: 6px 0;
+    transition: 0.4s;
+}
 
+/* Adjust existing styles */
+.container-navber {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 6rem;
+}
+
+.nav-bar {
+    display: flex;
+    height: auto;
+    align-items: center;
+    background: var(--color-option);
+    border-radius: 25px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Add media query for smaller screens */
+@media (max-width: 768px) {
+    .burger-icon {
+        display: flex;
+    }
+
+    .nav-bar {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: var(--color-option);
+        border-radius: 0;
+        z-index: 1;
+    }
+
+    .nav-bar.show {
+        display: flex;
+    }
+
+    .item {
+        width: 100%;
+        text-align: center;
+        padding: 1rem;
+    }
+}
