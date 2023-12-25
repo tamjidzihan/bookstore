@@ -31,23 +31,31 @@
                 <span class="display-6 mx-4 border-bottom border-4 border-warning">Deal of the week</span>
                 <div class="row align-items-center my-5">
                     <div class="col-md-6 my-lg-5 me-3 text-center text-md-start">
-                        <a href="{{ featured_product.get_absolute_url }}"><img class="img-fluid rounded-3"
-                                src="{{ featured_product.image.url }}" alt="Ebook Cover"></a>
+                        <a href="{{ featured_book.get_absolute_url }}"><img class="img-fluid rounded-3"
+                                src="{{ featured_book.image.url }}" alt="Ebook Cover"></a>
                     </div>
                     <div class="col-md-5 text-center text-md-start">
                         <h1>
-                            <a href="{{ featured_product.get_absolute_url }}">
-                                <div class="display-4 lead"> {{ featured_product.title }}</div>
+                            <a href="{{ featured_book.get_absolute_url }}">
+                                <div class="display-4 lead"> {{ featured_book.title }}</div>
                             </a>
-                            <div class="my-3 small">{{ featured_product.arthur }}</div>
+                            <div class="my-3 small">{{ featured_book.arthur }}</div>
                         </h1>
                         <div class="my-4">
-                            <span class="me-3 display-6">${{ featured_product.price }}
+                            <span class="me-3 display-6">${{ featured_book.price }}
                             </span>
                             <span class="text-decoration-line-through">$86.51</span>
                         </div>
                         <div class="mb-4">
-                            {{ featured_product.rating }}.00/5.00
+                            {{ featured_book.rating }}.00/5.00
+                            <div class="text-start py-2 ">
+                                <span class="text-start">Review :</span>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-half"></i>
+                                <i class="bi bi-star"></i>
+                            </div>
                         </div>
 
                         <div class="text-center">
@@ -78,7 +86,7 @@
                             <p class="col-6">Already Sold: 15pcs</p>
                             <p class="col-6">Reamining: 5pcs</p>
                         </div>
-                        <a href="{{ featured_product.get_absolute_url }}" class="btn btn-danger btn-lg">Buy
+                        <a href="{{ featured_book.get_absolute_url }}" class="btn btn-danger btn-lg">Buy
                             Now</a>
                     </div>
 
@@ -103,12 +111,20 @@
                                 </a>
                             <div class="small">{{ recently_updated_book.arthur }}</div>
                             </p>
-                            <div class="my-4">
+                            <div class="my-3">
                                 <span class="me-3 lead">${{ recently_updated_book.price }}
                                 </span>
                                 <span class="small text-decoration-line-through">$86.51</span>
                             </div>
-                            <p class="my-4 small">Rating {{ recently_updated_book.rating }}/5</p>
+                            <p class="mt-2 small">Rating {{ recently_updated_book.rating }}/5</p>
+                            <div class="text-start mb-3 ">
+                                <span class="text-start">Reviews :</span>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-half"></i>
+                                <i class="bi bi-star"></i>
+                            </div>
                             <a href="{{ recently_updated_book.get_absolute_url }}" class="btn btn-danger  btn-sm">Buy
                                 Now</a>
                         </div>
@@ -138,5 +154,49 @@
             </div>
         </a>
     </div>
+</section>
+<section class="my-5">
+    <div class="container-lg">
+        <div class="text-center">
+            <h2>Book Reviews</h2>
+            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe!</p>
+        </div>
+        <div class="row justify-content-center my-5">
+            {% for recently_updated_book in recently_updated_books %}
+            <div class="col-lg-8">
+                <div class="list-group">
+                    <div class="list-group-item py-3">
+                        <div class="row">
+                            <div class="col-lg-2 col-md-2">
+                                <a href="{{ recently_updated_book.get_absolute_url }}">
+                                    <img class="img-fluid" src="{{ recently_updated_book.image.url }}"
+                                        alt="recently_updated_book">
+                                </a>
+                            </div>
+                            <dev class="d-flex text-start flex-column justify-content-between px-2 col-lg-10 col-md-10">
+                                <div class="text-start py-2 ">
+                                    <span class="text-start">Review :</span>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-half"></i>
+                                    <i class="bi bi-star"></i>
+                                </div>
+                                <h5 class="mb-2">Lorem ipsum dolor sit amet consectetur.</h5>
+                                <p class="mb-1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut
+                                    omnis
+                                    quod
+                                    in
+                                    saepe dignissimos sed.</p>
+                                <small>Lorem ipsum dolor sit amet.</small>
+                            </dev>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
 </section>
 {% endblock %}

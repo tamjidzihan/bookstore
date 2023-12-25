@@ -14,10 +14,10 @@ class Category(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('shop:product_list_by_category', args=[self.slug])
+        return reverse('shop:book_list_by_category', args=[self.slug])
 
 
-class Product(models.Model):
+class Books(models.Model):
     category = models.ForeignKey(Category, related_name='products',on_delete=models.CASCADE)
     title = models.CharField(max_length=200, db_index=True)
     arthur = models.CharField(max_length=200,db_index=True)
@@ -27,8 +27,7 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     rating = models.IntegerField(choices=[(1, '1'), (2, '2'), (3, '3'), (4, '4'), (5, '5')])
     available = models.BooleanField(default=True)
-    inventory = models.IntegerField(null=True,blank=True)
-    featureproduct = models.BooleanField(default=False)
+    featurebook = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
@@ -43,7 +42,7 @@ class Product(models.Model):
         return self.category.name
 
     def get_absolute_url(self):
-        return reverse('shop:product_detail', args=[self.id, self.slug])
+        return reverse('shop:book_detail', args=[self.id, self.slug])
     
 class Events(models.Model):
     DEAL_OF_THE_WEEK = 'D'

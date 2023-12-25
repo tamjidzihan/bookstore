@@ -1,17 +1,17 @@
 {% extends "shop/base/base.html" %}
 {% load static %}
 {% block title %}
-{{ product.name }}
+{{ book.name }}
 {% endblock %}
 {% block content %}
 
 <div class="container ">
-    <h2 class="display-2">{{ product.name }}</h2>
+    <h2 class="display-2">{{ book.name }}</h2>
     <div class="row justify-content-center align-items-center p-3">
         <div class="col-md-6 col-lg-5 col-xl-4">
             <div class=" mb-1.5rem">
-                <a href="{{ product.get_absolute_url }}">
-                    <img class=" img-fluid rounded-3" src="{{ product.image.url }}" alt="books">
+                <a href="{{ book.get_absolute_url }}">
+                    <img class=" img-fluid rounded-3" src="{{ book.image.url }}" alt="books">
                 </a>
             </div>
         </div>
@@ -19,24 +19,24 @@
             <div class=" d-flex flex-column justify-content-between">
                 <div>
                     <h2 class="display-4">
-                        <a href="{{ product.get_absolute_url }}">
-                            {{ product.title }}
+                        <a href="{{ book.get_absolute_url }}">
+                            {{ book.title }}
                         </a>
                     </h2>
                 </div>
                 <div class="my-2">
-                    <p>{{ product.arthur }}</p>
+                    <p>{{ book.arthur }}</p>
                 </div>
                 <div>
-                    <p>{{ product.description }}</p>
+                    <p>{{ book.description }}</p>
                 </div>
                 <div class="d-flex my-3 flex-row align-items-center">
-                    <h1 class=" font-weight-light">${{ product.price }}</h1>
+                    <h1 class=" font-weight-light">${{ book.price }}</h1>
                     <h1 class="font-weight-light lead pl-1 ms-4 text-accent-option text-decoration-line-through">
                         $86.51</h1>
                 </div>
                 <div class="text-accent-option">
-                    <p>Rating {{ product.rating }}/5</p>
+                    <p>Rating {{ book.rating }}/5</p>
                 </div>
                 <div class=" d-flex justify-content-between pt-3">
                     <p>Already Sold: 15pcs</p>

@@ -1,10 +1,10 @@
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
-from .models import Category, Product,Events
+from .models import Category, Books,Events
 
 def index(request):
-    featured_product = Product.objects.filter(featureproduct=True).first()
-    recently_updated_books = Product.objects.filter().order_by('-updated')[:3]
+    featured_book = Books.objects.filter(featurebook=True).first()
+    recently_updated_books = Books.objects.filter().order_by('-updated')[:3]
     upcoming_events = Events.objects.filter(
         event_name=Events.DEAL_OF_THE_WEEK,
         event_time__gt=timezone.now()
@@ -24,14 +24,14 @@ def index(request):
             'minutes': int(minutes),
         })
 
-    context = {'featured_product': featured_product,'recently_updated_books': recently_updated_books,'countdown_data': countdown_data}
+    context = {'featured_book': featured_book,'recently_updated_books': recently_updated_books,'countdown_data': countdown_data}
     return render(request, 'shop/home.html', context )
 
-def product_list(request, category_slug=None):
+def book_list(request, category_slug=None):
     category = None
     categories = Category.objects.all()
-    products = Product.objects.filter(available = True)
-    featured_product = Product.objects.filter(featureproduct=True).first()
+    books = Books.objects.filter(available = True)
+    featured_book = Books.objects.filter(featurebook=True).first()
     upcoming_events = Events.objects.filter(
         event_name=Events.FLASH_SALE,
         event_time__gt=timezone.now()
@@ -53,14 +53,14 @@ def product_list(request, category_slug=None):
 
     if category_slug:
         category = get_object_or_404(Category,slug = category_slug)
-        products = products.filter(category=category)
-    context = {'category':category,'categories':categories,'products':products,'featured_product': featured_product,'countdown_data': countdown_data}
-    return render(request, 'shop/product/books.html', context)
+        books = books.filter(category=category)
+    context = {'category':category,'categories':categories,'books':books,'featured_book': featured_book,'countdown_data': countdown_data}
+    return render(request, 'shop/book/books.html', context)
 
-def product_detail(request, id, slug):
-    product = get_object_or_404(Product, id=id, slug=slug, available=True)
-    context = {'product': product}
-    return render(request, 'shop/product/bookdetail.html', context)
+def book_detail(request, id, slug):
+    book = get_object_or_404(Books, id=id, slug=slug, available=True)
+    context = {'book': book}
+    return render(request, 'shop/book/bookdetail.html', context)
     
 
 
