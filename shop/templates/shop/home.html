@@ -30,14 +30,14 @@
             <div class="col-lg-8 text-center  text-md-start border-5">
                 <span class="display-6 mx-4 border-bottom border-4 border-warning">Deal of the week</span>
                 <div class="row align-items-center my-5">
-                    <div class="col-md-6 my-lg-5 me-3 text-center text-md-start">
+                    <div class="col-lg-6 col-md-4 col-sm-4  my-lg-5 me-3 text-center text-md-start">
                         <a href="{{ featured_book.get_absolute_url }}"><img class="img-fluid rounded-3"
                                 src="{{ featured_book.image.url }}" alt="Ebook Cover"></a>
                     </div>
-                    <div class="col-md-5 text-center text-md-start">
+                    <div class="col-lg-5 col-md-6  col-sm-6 text-center text-md-start">
                         <h1>
                             <a href="{{ featured_book.get_absolute_url }}">
-                                <div class="display-4 lead"> {{ featured_book.title }}</div>
+                                <div class="display-5 lead"> {{ featured_book.title }}</div>
                             </a>
                             <div class="my-3 small">{{ featured_book.arthur }}</div>
                         </h1>
@@ -94,7 +94,8 @@
             </div>
 
             <div class="col-lg-4 text-center  text-md-start">
-                <span class="display-6 my-4 border-bottom border-4 ">Top Rating</span>
+                <span class="display-6 my-4 border-bottom border-4 ">Top Rating </span>
+                <span><i class="bi bi-stars fs-1"></i></span>
                 {% for recently_updated_book in recently_updated_books %}
                 <div>
                     <div class="row my-3 align-items-center">
@@ -158,7 +159,8 @@
 <section class="my-5">
     <div class="container-lg">
         <div class="text-center">
-            <h2>Book Reviews</h2>
+            <h2>Book Reviews<span><i class="bi bi-award"></i></span></h2>
+
             <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe!</p>
         </div>
         <div class="row justify-content-center my-5">
