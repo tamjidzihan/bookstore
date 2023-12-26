@@ -38,6 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # third paty from
+    'crispy_forms',
+    'crispy_bootstrap4',
+
+    'appuser',
+    'core',
     'shop',
 ]
 
@@ -126,3 +132,10 @@ MEDIA_ROOT = BASE_DIR / "media"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+AUTH_USER_MODEL = 'core.User'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+APPEND_SLASH = False
