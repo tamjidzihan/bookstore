@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from core.models import User
-from .forms import CreateUserFrom
+from .models import Customer,Address
 
 # Create your views here.
 
@@ -28,7 +28,6 @@ def register(request):
                     email = email
                     )
                 user.set_password(password)
-                print("success")
                 user.save()
                 return redirect('/appuser/log-in')
         else:
@@ -44,7 +43,7 @@ def log_in(request):
         user = auth.authenticate(username = username, password = password)
         if user is not None:
             auth.login(request,user)
-            return redirect('/')
+            return redirect('/appuser/user-info')
         else:
             messages.info(request,"Invalid Username And Password")
             return redirect('/appuser/log-in')
@@ -52,10 +51,64 @@ def log_in(request):
 
 
 
-@login_required
+def log_out(request):
+    auth.logout(request)
+    return redirect('/')
+
+
+
+@login_required(login_url='/appuser/log-in')
 def user_info(request):
     user = request.user
-    return render(request, 'appuser/test/userinfo.html')
+    customer = Customer.objects.filter(user_id=user.id).first()
+    address = Address.objects.filter(customer=customer).first()
+    context = {'user': user, 'customer': customer, 'address': address}
+    return render(request, 'appuser/test/userinfo.html',context)
+
+@login_required(login_url='/appuser/log-in')
+def update_user_info(request):
+    user = request.user
+    customer = Customer.objects.filter(user_id=user.id).first()
+    address = Address.objects.filter(customer=customer).first()
+    context = {'user': user, 'customer': customer, 'address': address}
+
+    if request.method == 'POST':
+        phone = request.POST['phone']
+        date_of_birth = request.POST['date_of_birth']
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        street = request.POST['street']
+        city = request.POST['city']
+        country = request.POST['country']
+
+        # Update the User instance for the current user
+        user.first_name = first_name
+        user.last_name = last_name
+        user.save()
+
+        # Update the Customer instance for the current user
+        if customer:
+            customer.phone = phone
+            customer.date_of_birth = date_of_birth
+            customer.save()
+        else:
+            Customer.objects.create(phone = phone,date_of_birth = date_of_birth,user_id=user.id)
+            
+
+        # Update the Address instance for the current user
+        if address:
+            address.street = street
+            address.city = city
+            address.country = country
+            address.save()
+        else:
+            Address.objects.create(street=street, city=city, country=country, customer=customer)
+
+        return redirect('/appuser/user-info')
+
+    return render(request, 'appuser/test/update_user_info.html', context)
+
+
 
 
 

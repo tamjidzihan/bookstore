@@ -8,7 +8,7 @@ from . import models
 
 @admin.register(models.Customer)
 class CustomerAdmin(admin.ModelAdmin):
-    list_display = ['first_name','last_name','email','phone','address']
+    list_display = ['id','first_name','last_name','email','date_of_birth','phone','address']
     list_select_related = ['address']
     ordering = ['user__first_name','user__last_name']
     autocomplete_fields = ['user']

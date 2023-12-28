@@ -13,7 +13,7 @@
 
 <body>
     <section id="contact">
-        <div class="container-lg my-5">
+        <div class="container py-5 my-5">
             <div class="text-center">
                 <h2>Booksite</h2>
                 <p class="lead">
@@ -21,7 +21,7 @@
                 </p>
             </div>
             <div class="row justify-content-center my-5">
-                <div class="col-lg-3 col-md-5">
+                <div class="col-lg-5 col-md-5">
                     <form action="{% url 'appuser:log-in'%}" method="POST">
                         {% csrf_token %}
 
@@ -45,8 +45,18 @@
                                     placeholder="Password" required>
                             </div>
                         </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Remember me?</label>
+                        </div>
                         <button class="btn btn-primary" type="submit">Log In</button>
+                        <div class="text-center my-3">
+                            <p class="text-secondary">Need an account?
+                                <a class="text-uppercase" href="register">SIGN UP</a>
+                            </p>
+                        </div>
                     </form>
+
                     <div class="my-5">
                         {% for message in messages %}
                         <div class="alert alert-danger" role="alert">
