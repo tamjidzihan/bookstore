@@ -1,23 +1,67 @@
 {% load static %}
 <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container">
+    <div class="container-xxl">
         <a class="navbar-brand " href="/">
             <img class="img-fluid" src="{% static 'image/Asset-6PNG.png'%}" alt=""
                 style="max-width: 190px; max-height: auto;">
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        <button class="navbar-toggler bg-danger" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-center align-items-center text-center" id="navbarNav">
-            <div class="py-2 ms-auto bg-danger rounded-pill text-center">
-                <a class="px-5 text-light" href="/">Home</a>
-                <a class="px-5 text-light" href="/books/">Books</a>
-                <a class="px-5 text-light" href="/books/">Store</a>
-                <a class="px-5 text-light" href="#">Music</a>
-                <a class="px-5 text-light" href="#">About</a>
+        <div class="collapse navbar-collapse justify-content-end align-items-center text-center" id="navbarNav">
+            <div class="py-2 px-4 ms-auto bg-danger rounded-pill">
+                <a class="px-4 text-light" href="/">Home</a>
+                <span class="dropdown px-4">
+                    <button class="btn btn-danger rounded-pill dropdown-toggle py-0" id="user-login"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Shop
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-dark bg-danger my-3" aria-labelledby="">
+                        <li><a class="dropdown-item rounded-pill" href="/books/">Books</a></li>
+                        <li><a class="dropdown-item rounded-pill" href="/books/">Store</a></li>
+                    </ul>
+                </span>
+                <a class="px-4 text-light" href="#">Music</a>
+                <a class="px-4 text-light" href="#">About</a>
+                <span class="dropdown px-4">
+                    <button class="btn btn-danger rounded-pill dropdown-toggle py-0" id="user-login"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        {% if request.user.is_authenticated %}
+                        <span>
+                            {{ request.user.username}}
+                        </span>
+                        {% else %}
+                        <span>Log In</span>
+                        {% endif %}
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-dark bg-danger my-3" aria-labelledby="dropdownMenuButton2">
+                        {% if request.user.is_authenticated %}
+                        <li><a class="dropdown-item rounded-pill" href="appuser/user-info">
+                                Account Information
+                            </a></li>
+                        {% else %}
+                        <li><a class="dropdown-item rounded-pill" href="appuser/log-in">Log In/Sign Up</a></li>
+                        {% endif %}
+                        <li><a class="dropdown-item rounded-pill" href="#">Another action</a></li>
+                        <li><a class="dropdown-item rounded-pill" href="#">Something else here</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        {% if request.user.is_authenticated %}
+                        <li>
+                            <a class="dropdown-item" href="/appuser/log-out">Log Out</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </span>
             </div>
-            <div class="search-icon">
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-danger rounded-circle" type="submit"><i class="bi bi-search"></i></button>
+            </form>
+
+            <!-- <div class="search-icon">
                 <button id="searchButton" class="btn btn-danger rounded-circle" type="button" data-bs-toggle="collapse"
                     data-bs-target="#searchCollapse" aria-expanded="false" aria-controls="searchCollapse">
                     <i class="bi bi-search"></i>
@@ -31,7 +75,7 @@
                         </button>
                     </form>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 
