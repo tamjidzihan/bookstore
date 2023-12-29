@@ -37,11 +37,12 @@
                     </button>
                     <ul class="dropdown-menu dropdown-menu-dark bg-danger my-3" aria-labelledby="dropdownMenuButton2">
                         {% if request.user.is_authenticated %}
-                        <li><a class="dropdown-item rounded-pill" href="appuser/user-info">
+                        <li><a class="dropdown-item rounded-pill" href="{% url 'appuser:user-info'%}">
                                 Account Information
                             </a></li>
                         {% else %}
-                        <li><a class="dropdown-item rounded-pill" href="appuser/log-in">Log In/Sign Up</a></li>
+                        <li><a class="dropdown-item rounded-pill" href="{% url 'appuser:log-in'%}">Log In/Sign Up</a>
+                        </li>
                         {% endif %}
                         <li><a class="dropdown-item rounded-pill" href="#">Another action</a></li>
                         <li><a class="dropdown-item rounded-pill" href="#">Something else here</a></li>
