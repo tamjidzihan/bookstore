@@ -6,10 +6,9 @@
 {% block content %}
 
 <div class="container ">
-    <h2 class="display-2">{{ book.name }}</h2>
-    <div class="row justify-content-center align-items-center p-3">
+    <div class="row justify-content-center align-items-center p-3 my-5">
         <div class="col-md-6 col-lg-5 col-xl-4">
-            <div class=" mb-1.5rem">
+            <div>
                 <a href="{{ book.get_absolute_url }}">
                     <img class=" img-fluid rounded-3" src="{{ book.image.url }}" alt="books">
                 </a>
@@ -44,6 +43,7 @@
                 </div>
             </div>
             <button class="btn btn-danger">Buy E-book on Amazon</button>
+            <a href="{% url 'order:add-to-cart' pk = book.id %}">Add to cart</a>
         </div>
     </div>
 </div>
