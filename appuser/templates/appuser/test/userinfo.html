@@ -32,23 +32,16 @@
                 Other Information
             </div>
             <div class="card-body">
+                <p class="card-text"><strong>Full Name:</strong> {{ customer.full_name }}</p>
+                <p class="card-text"><strong>Address:</strong> {{ customer.address }}</p>
+
+                <p class="card-text"><strong>City:</strong> {{ customer.city }}</p>
+                <p class="card-text"><strong>Zipcode:</strong> {{ customer.zipcode }}</p>
+                <p class="card-text"><strong>Country:</strong> {{ customer.country }}</p>
                 <p class="card-text"><strong>Phone:</strong> {{ customer.phone }}</p>
                 <p class="card-text"><strong>Date of Birth:</strong> {{ customer.date_of_birth }}</p>
             </div>
         </div>
-
-        {% if address %}
-        <div class="card mt-3">
-            <div class="card-header">
-                Address Information
-            </div>
-            <div class="card-body">
-                <p class="card-text"><strong>Street:</strong> {{ address.street }}</p>
-                <p class="card-text"><strong>City:</strong> {{ address.city }}</p>
-                <p class="card-text"><strong>Country:</strong> {{ address.country }}</p>
-            </div>
-        </div>
-        {% endif %}
 
         {% endif %}
 
@@ -60,7 +53,7 @@
                 <a class="btn btn-danger btn-lg" href="log-out">Log Out</a>
             </div>
             <div class="text-center m-2">
-                <a class="btn btn-danger btn-lg" href="/">Home</a>
+                <a class="btn btn-success btn-lg" href="/">Home</a>
             </div>
         </div>
     </div>

@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 
     'appuser',
     'core',
+    'order',
     'shop',
 ]
 
