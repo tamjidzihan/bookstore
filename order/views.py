@@ -1,4 +1,6 @@
 from django.shortcuts import render,get_object_or_404,redirect
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 from shop.models import Books
 from order.models import Order,Cart
@@ -7,11 +9,15 @@ from order.models import Order,Cart
 # Create your views here.
 
 def add_to_cart(request, pk):
-    item = get_object_or_404(Books, pk = pk)
-    order_item = Cart.objects.get_or_create(item = item,user = request.user, purchased = False)
-    order_qs = Order.objects.filter(user = request.user, ordered = False )
+    item = get_object_or_404(Books, id = pk)
+    if request.user.is_authenticated:
+        order_qs = Order.objects.filter(user = request.user, ordered = False )
+        order_item = Cart.objects.get_or_create(item = item,user = request.user, purchased = False)
+    else:
+        messages.warning(request, "Please log in to add items to your cart.")
+        return redirect('/appuser/log-in')
 
-    if order_qs.exists:
+    if order_qs.exists():
         order = order_qs[0]
         if order.orderitems.filter(item = item).exists():
             order_item[0].quantity += 1
@@ -25,3 +31,6 @@ def add_to_cart(request, pk):
         order.save()
         order.orderitems.add(order_item[0])
         return redirect('/')
+
+
+

@@ -42,8 +42,10 @@
                     <p>Remaining: 5pcs</p>
                 </div>
             </div>
+            <a href="{% url 'order:add-to-cart' pk=book.id %}" class="btn btn-warning">Add to Cart</a>
             <button class="btn btn-danger">Buy E-book on Amazon</button>
-            <a href="{% url 'order:add-to-cart' pk = book.id %}">Add to cart</a>
+
+
         </div>
     </div>
 </div>

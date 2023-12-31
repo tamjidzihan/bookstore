@@ -5,7 +5,7 @@ from shop.models import Books
 # Create your models here.
 
 class Cart(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='cart')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='cart',blank = True ,null= True)
     item = models.ForeignKey(Books, on_delete=models.CASCADE)
     quantity = models.IntegerField(default=1) 
     purchased = models.BooleanField(default=False)

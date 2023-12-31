@@ -61,6 +61,23 @@
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-danger rounded-circle" type="submit"><i class="bi bi-search"></i></button>
             </form>
+            <!-- <form class="d-flex mx-2">
+                <button class="btn btn-danger rounded-circle" type="submit"><i class="bi bi-cart-fill"></i></i></button>
+            </form> -->
+            <button class="btn btn-danger rounded-circle mx-2" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-cart-fill"></i></button>
+
+            <div class="offcanvas offcanvas-end btn-warning" tabindex="-1" id="offcanvasRight"
+                aria-labelledby="offcanvasRightLabel">
+                <div class="offcanvas-header">
+                    <h5 id="offcanvasRightLabel">Cart Item</h5>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body" style="background: #9552FD;">
+                    ...
+                </div>
+            </div>
 
             <!-- <div class="search-icon">
                 <button id="searchButton" class="btn btn-danger rounded-circle" type="button" data-bs-toggle="collapse"
