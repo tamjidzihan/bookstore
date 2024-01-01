@@ -1,4 +1,5 @@
 {% load static %}
+{% load cart_product %}
 <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-xxl">
         <a class="navbar-brand " href="/">
@@ -57,29 +58,13 @@
                     </ul>
                 </span>
             </div>
-            <form class="d-flex">
+            <!-- <form class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-danger rounded-circle" type="submit"><i class="bi bi-search"></i></button>
-            </form>
-            <!-- <form class="d-flex mx-2">
-                <button class="btn btn-danger rounded-circle" type="submit"><i class="bi bi-cart-fill"></i></i></button>
             </form> -->
-            <button class="btn btn-danger rounded-circle mx-2" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="bi bi-cart-fill"></i></button>
 
-            <div class="offcanvas offcanvas-end btn-warning" tabindex="-1" id="offcanvasRight"
-                aria-labelledby="offcanvasRightLabel">
-                <div class="offcanvas-header">
-                    <h5 id="offcanvasRightLabel">Cart Item</h5>
-                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                        aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body" style="background: #9552FD;">
-                    ...
-                </div>
-            </div>
 
-            <!-- <div class="search-icon">
+            <div class="search-icon">
                 <button id="searchButton" class="btn btn-danger rounded-circle" type="button" data-bs-toggle="collapse"
                     data-bs-target="#searchCollapse" aria-expanded="false" aria-controls="searchCollapse">
                     <i class="bi bi-search"></i>
@@ -93,7 +78,68 @@
                         </button>
                     </form>
                 </div>
-            </div> -->
+            </div>
+
+
+
+            <button class="btn btn-danger rounded-circle mx-2 position-relative" type="button"
+                data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                <i class="bi bi-cart-fill"></i>
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning">
+                    1 <!-- You can dynamically update this number with JavaScript -->
+                    <span class="visually-hidden">items in cart</span>
+                </span>
+            </button>
+
+            <div class="offcanvas offcanvas-end btn-danger" tabindex="-1" id="offcanvasRight"
+                aria-labelledby="offcanvasRightLabel">
+                <div class="offcanvas-header">
+                    <h5 id="offcanvasRightLabel">Cart Item</h5>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body" style="background: #9552FD;">
+                    <section>
+
+                        <div class="d-flex justify-content-between align-items-center flex-row border-bottom mb-4 py-0">
+                            <p class="text-start col-6 text-white">Product</p>
+                            <p class="col-2 text-white">Quantity</p>
+                            <p class=" col-2 text-white">Price</p>
+                        </div>
+
+                    </section>
+                    <section>
+                        {% if request.user.is_authenticated %}
+                        {% for cart in request.user|cart_view %}
+                        <div class="d-flex justify-content-between align-items-center flex-row my-4 pb-2">
+                            <a href="{{ cart.item.get_absolute_url }}" class="mb-2 col-3">
+                                <img src="{{ cart.item.image.url }}" alt="{{ cart.item.title }}" class="img-fluid ">
+                            </a>
+                            <a href="{{ cart.item.get_absolute_url }}" class="col-4">
+                                <p class="text-start  text-white">{{ cart.item.title }}</p>
+                            </a>
+                            <p class="col-1 text-white">X</p>
+                            <p class="col-1 text-white">{{ cart.quantity }}</p>
+
+                            <p class=" col-2 text-white">${{ cart.get_total_price }}</p>
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+                    </section>
+                    {% if request.user.is_authenticated %}
+                    <div class="d-flex justify-content-between align-items-center flex-row  border-top p-3">
+                        <p class="text-white  lead">Total Price: </p>
+
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+
+
+
+
+
+
         </div>
     </div>
 

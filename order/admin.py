@@ -15,24 +15,24 @@ class CartAdmin(admin.ModelAdmin):
     
 
 
-# @admin.register(Order)
-# class OrderAdmin(admin.ModelAdmin):
-#     list_display = ['user', 'ordered', 'created', 'paymentID', 'orderID']
-#     list_filter = ['ordered', 'created']
-#     search_fields = ['user__username', 'paymentID', 'orderID']
+@admin.register(Order)
+class OrderAdmin(admin.ModelAdmin):
+    list_display = ['user', 'ordered','calculate_totals_price', 'created', 'paymentID', 'orderID']
+    list_filter = ['ordered', 'created']
+    search_fields = ['user__username', 'paymentID', 'orderID']
 
-#     readonly_fields = ['created']
+    readonly_fields = ['created']
 
-#     fieldsets = [
-#         ('Order Information', {'fields': ['user', 'ordered', 'created', 'paymentID', 'orderID']}),
-#         ('Order Items', {'fields': ['orderitems']}),
-#     ]
+    fieldsets = [
+        ('Order Information', {'fields': ['user', 'ordered', 'created', 'paymentID', 'orderID']}),
+        ('Order Items', {'fields': ['orderitems']}),
+    ]
 
-#     filter_horizontal = ('orderitems',)
+    filter_horizontal = ('orderitems',)
 
-#     def calculate_totals_price(self, obj):
-#         return obj.calculate_totals
+    def calculate_totals_price(self, obj):
+        return obj.calculate_totals
     
 
     
-admin.site.register(Order)
+# admin.site.register(Order)

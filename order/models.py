@@ -32,9 +32,9 @@ class Order(models.Model):
 
     def __str__(self):
         return f'Order For: {self.user.username}'
-
+    
     def calculate_totals(self):
         total = 0
-        for order_item in self.orderitems.all():
-            total += float(order_item.get_total_price())
+        for item in self.orderitems.all():
+            total += float(item.get_total_price())
         return total
