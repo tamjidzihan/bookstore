@@ -21,4 +21,10 @@ def cart_price(user):
         return 0
     
 
-#  <p class="text-white lead">${{ request.user|cart_price }}</p>
+@register.filter
+def cart_count(user):
+    order = Order.objects.filter(user=user, ordered = False)
+    if order.exists():
+        return order[0].orderitems.count()
+    else:
+        return 0

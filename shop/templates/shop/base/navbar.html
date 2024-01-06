@@ -86,7 +86,11 @@
                 data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                 <i class="bi bi-cart-fill"></i>
                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning">
-                    1 <!-- You can dynamically update this number with JavaScript -->
+                    {% if request.user.is_authenticated %}
+                    {{ request.user|cart_count }}
+                    {% else %}
+                    0
+                    {% endif %}
                     <span class="visually-hidden">items in cart</span>
                 </span>
             </button>
@@ -127,19 +131,24 @@
                         {% endif %}
                     </section>
                     {% if request.user.is_authenticated %}
-                    <div class="d-flex justify-content-between align-items-center flex-row  border-top p-3">
-                        <p class="text-white  lead">Total Price: </p>
+                    <div>
+                        <div class="d-flex justify-content-between align-items-center flex-row  border-top p-3">
+                            <p class="text-white  lead">Total Price: </p>
+                            <p class="text-white lead">$ {{ request.user|cart_price }}</p>
+                        </div>
+                        <div class="text-center">
+                            <a href="{% url 'order:cart-view' %}" class="btn btn-danger w-100">View Cart</a>
+                        </div>
+                        {% else %}
+                        <span class="text-white  lead me-5">Total Price: </span>
+                        <span class="text-white lead ms-5">$0</span>
 
                     </div>
                     {% endif %}
+
                 </div>
+
             </div>
-
-
-
-
-
-
         </div>
     </div>
 

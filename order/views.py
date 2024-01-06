@@ -34,3 +34,14 @@ def add_to_cart(request, pk):
 
 
 
+@login_required(login_url='/appuser/log-in')
+def car_view(request):
+    carts= Cart.objects.filter(user = request.user,purchased = False)
+    orders = Order.objects.filter(user = request.user,ordered = False )
+    if carts.exists() and orders.exists():
+        order = orders[0]
+        context = {
+            'carts':carts,
+            'order':order
+        }
+        return render(request, 'order/cart.html',context)

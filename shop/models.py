@@ -44,6 +44,12 @@ class Books(models.Model):
     def get_absolute_url(self):
         return reverse('shop:book_detail', args=[self.id, self.slug])
     
+
+
+
+
+
+
 class Events(models.Model):
     DEAL_OF_THE_WEEK = 'D'
     FLASH_SALE = 'F'

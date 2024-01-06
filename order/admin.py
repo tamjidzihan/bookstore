@@ -9,7 +9,7 @@ class CartAdmin(admin.ModelAdmin):
     search_fields = ['user__username', 'item__title']
 
     def total_price(self, obj):
-        return obj.get_total_price
+        return obj.get_total_price()
 
     total_price.short_description = 'Total Price'
     
@@ -20,7 +20,6 @@ class OrderAdmin(admin.ModelAdmin):
     list_display = ['user', 'ordered','calculate_totals_price', 'created', 'paymentID', 'orderID']
     list_filter = ['ordered', 'created']
     search_fields = ['user__username', 'paymentID', 'orderID']
-
     readonly_fields = ['created']
 
     fieldsets = [
@@ -31,7 +30,7 @@ class OrderAdmin(admin.ModelAdmin):
     filter_horizontal = ('orderitems',)
 
     def calculate_totals_price(self, obj):
-        return obj.calculate_totals
+        return obj.calculate_totals()
     
 
     

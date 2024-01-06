@@ -15,7 +15,6 @@ class Cart(models.Model):
     def __str__(self):
         return f"{self.item} x {self.quantity}"
 
-    @property
     def get_total_price(self):
         total_price = self.item.price * self.quantity
         return format(total_price, '0.2f')
@@ -37,4 +36,4 @@ class Order(models.Model):
         total = 0
         for item in self.orderitems.all():
             total += float(item.get_total_price())
-        return total
+        return format(total, '0.2f')
