@@ -62,5 +62,11 @@ def book_detail(request, id, slug):
     context = {'book': book}
     return render(request, 'shop/book/bookdetail.html', context)
     
+def about(request):
+    return render(request,'shop/book/about.html')
 
+
+
+def termsandconditions(request):
+    return render(request,'shop/book/termsandconditions.html')
 

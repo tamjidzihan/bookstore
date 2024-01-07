@@ -32,7 +32,7 @@
                 <div class="d-flex my-3 flex-row align-items-center">
                     <h1 class=" font-weight-light">${{ book.price }}</h1>
                     <h1 class="font-weight-light lead pl-1 ms-4 text-accent-option text-decoration-line-through">
-                        $86.51</h1>
+                        ${{ book.increased_price }}</h1>
                 </div>
                 <div class="text-accent-option">
                     <p>Rating {{ book.rating }}/5</p>
@@ -44,6 +44,9 @@
             </div>
             <a href="{% url 'order:add-to-cart' pk=book.id %}" class="btn btn-warning">Add to Cart</a>
             <button class="btn btn-danger">Buy E-book on Amazon</button>
+            <a class="btn btn-danger" data-mdb-toggle="tooltip" title="Move to the wish list">
+                <i class="fas fa-heart"></i>
+            </a>
 
 
         </div>

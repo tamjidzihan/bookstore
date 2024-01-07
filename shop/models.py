@@ -25,6 +25,7 @@ class Books(models.Model):
     image = models.ImageField(upload_to='products/%Y/%m/%d', blank=False)
     description = models.TextField(blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
+    increased_price = models.DecimalField(max_digits = 10,decimal_places=2,null=True,blank= True)
     rating = models.IntegerField(choices=[(1, '1'), (2, '2'), (3, '3'), (4, '4'), (5, '5')])
     available = models.BooleanField(default=True)
     featurebook = models.BooleanField(default=False)

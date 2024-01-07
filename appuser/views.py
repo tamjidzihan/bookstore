@@ -16,10 +16,10 @@ def register(request):
         
         if password == confirm_password:
             if User.objects.filter(username = username).exists():
-                messages.info(request,'Username is Alrady Exist')
+                messages.warning(request,'Username is Alrady Exist')
                 return redirect('/appuser/register')
             if User.objects.filter(email = email).exists():
-                messages.info(request,'Email is Alrady Exist')
+                messages.warning(request,'Email is Alrady Exist')
                 return redirect('/appuser/register')
             else:
                 user = User.objects.create_user(
@@ -31,7 +31,7 @@ def register(request):
                 user.save()
                 return redirect('/appuser/log-in')
         else:
-            messages.info(request,'Password Do not Match')
+            messages.warning(request,'Password Do not Match')
             return redirect('/appuser/register')
     return render(request,'appuser/register.html')
             
@@ -45,7 +45,7 @@ def log_in(request):
             auth.login(request,user)
             return redirect('/appuser/user-info')
         else:
-            messages.info(request,"Invalid Username And Password")
+            messages.warning(request,"Invalid Username And Password")
             return redirect('/appuser/log-in')
     return render(request,'appuser/login.html')
 
@@ -61,7 +61,7 @@ def user_info(request):
     user = request.user
     customer = Customer.objects.filter(user_id=user.id).first()
     context = {'user': user, 'customer': customer}
-    return render(request, 'appuser/test/userinfo.html',context)
+    return render(request, 'appuser/userinfo.html',context)
 
 
 @login_required(login_url='/appuser/log-in')
@@ -80,6 +80,7 @@ def update_user_info(request):
         zipcode = request.POST['zipcode']
         phone = request.POST['phone']
         date_of_birth = request.POST['date_of_birth']
+        print(date_of_birth)
 
         # Update the User instance for the current user
         user.first_name = first_name
@@ -107,8 +108,8 @@ def update_user_info(request):
                 phone = phone,
                 date_of_birth = date_of_birth
                 )
-        return redirect('/appuser/user-info')
-    return render(request, 'appuser/test/update_user_info.html', context)
+        return redirect('appuser:user-info')
+    return render(request, 'appuser/update_user_info.html', context)
 
 
 

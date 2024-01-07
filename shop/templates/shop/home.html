@@ -41,7 +41,7 @@
                         <div class="my-4">
                             <span class="me-3 display-6">${{ featured_book.price }}
                             </span>
-                            <span class="text-decoration-line-through">$86.51</span>
+                            <span class="text-decoration-line-through">${{ featured_book.increased_price }}</span>
                         </div>
                         <div class="mb-4">
                             {{ featured_book.rating }}.00/5.00
@@ -61,18 +61,18 @@
                             <div class="row my-4 text-end">
                                 <div class="col-3 mx-2">
                                     <p class="bg-danger text-center rounded-pill">
-                                        {{ event.days|default:"00"|stringformat:"02d" }}</p>
+                                        {{ event.days|default:"00" }}</p>
                                     <p class="text-center">DAYS</p>
                                 </div>
                                 <div class="col-3 mx-2">
                                     <p class="bg-danger text-center rounded-pill">
-                                        {{ event.hours|default:"00"|stringformat:"02d" }}
+                                        {{ event.hours|default:"00" }}
                                     </p>
                                     <p class="text-center">HOURS</p>
                                 </div>
                                 <div class="col-3 mx-2">
                                     <p class="bg-danger text-center rounded-pill">
-                                        {{event.minutes|default:"00"|stringformat:"02d" }}
+                                        {{event.minutes|default:"00" }}
                                     </p>
                                     <p class="text-center">MINUTES</p>
                                 </div>
@@ -112,7 +112,9 @@
                             <div class="my-3">
                                 <span class="me-3 lead">${{ recently_updated_book.price }}
                                 </span>
-                                <span class="small text-decoration-line-through">$86.51</span>
+                                <span class="small text-decoration-line-through">
+                                    ${{recently_updated_book.increased_price}}
+                                </span>
                             </div>
                             <p class="mt-2 small">Rating {{ recently_updated_book.rating }}/5</p>
                             <div class="text-start mb-3 ">

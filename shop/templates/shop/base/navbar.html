@@ -24,7 +24,7 @@
                     </ul>
                 </span>
                 <a class="px-4 text-light" href="#">Music</a>
-                <a class="px-4 text-light" href="#">About</a>
+                <a class="px-4 text-light" href="{% url 'shop:about' %}">About</a>
                 <span class="dropdown px-4">
                     <button class="btn btn-danger rounded-pill dropdown-toggle py-0" id="user-login"
                         data-bs-toggle="dropdown" aria-expanded="false">
@@ -46,7 +46,8 @@
                         </li>
                         {% endif %}
                         <li><a class="dropdown-item rounded-pill" href="#">Another action</a></li>
-                        <li><a class="dropdown-item rounded-pill" href="#">Something else here</a></li>
+                        <li><a class="dropdown-item rounded-pill" href="{% url 'shop:terms-and-conditions' %}">Terms and
+                                Conditions</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>

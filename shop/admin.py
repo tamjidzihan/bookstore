@@ -9,10 +9,10 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Books)
 class BooksAdmin(admin.ModelAdmin):
-    list_display = ['title','arthur' ,'catagory','slug', 'price','featurebook','rating','image', 'created']
+    list_display = ['title','arthur' ,'catagory','slug', 'price','increased_price','featurebook','rating','created']
     # autocomplete_fields = ['catagory']
     list_filter = ['available', 'created', 'updated']
-    list_editable = ['price','featurebook']
+    list_editable = ['price','featurebook','increased_price']
     prepopulated_fields = {'slug': ('title',)}
     list_per_page = 50
 
