@@ -3,8 +3,8 @@ from django.utils import timezone
 from .models import Category, Books,Events
 
 def index(request):
-    featured_book = Books.objects.filter(featurebook=True).first()
-    recently_updated_books = Books.objects.filter().order_by('-updated')[:3]
+    featured_book = Books.objects.filter(featurebook=True,category = 1).first()
+    recently_updated_books = Books.objects.filter(category = 1).order_by('-updated')[:3]
     upcoming_events = Events.objects.filter(
         event_name=Events.DEAL_OF_THE_WEEK,
         event_time__gt=timezone.now()
