@@ -1,0 +1,85 @@
+{% extends "shop/base/base.html" %}
+{% load static %}
+{% block title %}
+Toys and Accessories
+{% endblock %}
+{% block content %}
+
+<style>
+    .card-img-top {
+        max-height: 350px;
+        min-height: 150px;
+        object-fit: contain;
+    }
+
+    .card-body {
+        max-height: 200px;
+        min-height: 150px;
+    }
+</style>
+
+
+<section id="toys" class="bg-primary mt-5">
+    <div class="container-lg">
+        <div class="text-center">
+            <h2>Pricing Plans</h2>
+            <p class="lead text-muted">Choose a pricing plan that suits you.</p>
+        </div>
+        <div class="row my-5 align-items-center justify-content-center">
+            {% for product in products %}
+            <div class=" col-lg mx-4 my-5">
+                <div class="card h-100" style="background-color: blueviolet;">
+                    <a href="{{ product.get_absolute_url }}">
+                        <img class="card-img-top img-fluid img-thumbnail" src="{{ product.image.url }}"
+                            alt="product image">
+                    </a>
+                    <div class="card-body">
+                        <h3 class="card-title">{{ product.title }}</h5>
+                            <p class="card-text">{{ product.description }}</p>
+                            <p class="card-text">${{ product.price }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="card-group">
+    {% for product in products %}
+    <div class="card" style="background-color: blueviolet;">
+        <a href="{{ product.get_absolute_url }}">
+            <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="product image">
+        </a>
+        <div class="card-body">
+            <h5 class="card-title display-6">{{ product.title }}</h5>
+            <p class="card-text">{{ product.description }}</p>
+            <p class="card-text">${{ product.price }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div> -->
+
+<!-- <div class="card-group">
+    <div class="card">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+                content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+    </div>
+</div> -->
+
+{% endblock %}

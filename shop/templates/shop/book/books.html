@@ -104,7 +104,8 @@ Books
                             </div>
                             <div class="booklist-price">
                                 <h1 class="booklist-price-main">${{ book.price }}</h1>
-                                <h1 class="booklist-price-blur">$86.51</h1>
+                                <h1 class="booklist-price-blur text-decoration-line-through">${{ book.increased_price }}
+                                </h1>
                             </div>
                         </div>
                         <div class="booklist-rating">
@@ -195,8 +196,12 @@ Books
                                     <p>{{ featured_book.arthur }}</p>
                                 </div>
                                 <div class=" d-flex align-items-center justify-content-end">
-                                    <h1 class="fs-4 text-decoration-line-through pe-4">$86.51</h1>
-                                    <h1>${{ featured_book.price }}</h1>
+                                    <h1 class="fs-4 text-decoration-line-through pe-4">
+                                        ${{ featured_book.increased_price }}
+                                    </h1>
+                                    <h1>${{ featured_book.price }}
+
+                                    </h1>
                                 </div>
                             </div>
                             <div class=" pt-4 text-accent">

@@ -30,7 +30,7 @@ def index(request):
 def book_list(request, category_slug=None):
     category = None
     categories = Category.objects.all()
-    books = Books.objects.filter(available = True)
+    books = Books.objects.filter(available = True,category = 1)
     featured_book = Books.objects.filter(featurebook=True).first()
     upcoming_events = Events.objects.filter(
         event_name=Events.FLASH_SALE,
@@ -61,11 +61,26 @@ def book_detail(request, id, slug):
     book = get_object_or_404(Books, id=id, slug=slug, available=True)
     context = {'book': book}
     return render(request, 'shop/book/bookdetail.html', context)
+
+
+
+def product_list(request):
+    categories = Category.objects.all()
+    products = Books.objects.filter(available = True,category = 2)
+    context = {'categories':categories,'products':products}
+    return render(request, 'shop/product/porductlist.html',context)
+
+
+
+
+
+
+
+
+
     
 def about(request):
     return render(request,'shop/book/about.html')
-
-
 
 def termsandconditions(request):
     return render(request,'shop/book/termsandconditions.html')
