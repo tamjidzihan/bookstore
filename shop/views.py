@@ -66,9 +66,12 @@ def book_detail(request, id, slug):
 
 def product_list(request):
     categories = Category.objects.all()
-    products = Books.objects.filter(available = True,category = 2)
-    context = {'categories':categories,'products':products}
+    toys = Books.objects.filter(available = True,category = 2)
+    accessories= Books.objects.filter(available = True,category = 3)
+
+    context = {'categories':categories,'toys':toys,'accessories':accessories}
     return render(request, 'shop/product/porductlist.html',context)
+
 
 
 

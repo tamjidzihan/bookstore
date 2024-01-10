@@ -7,36 +7,67 @@ Toys and Accessories
 
 <style>
     .card-img-top {
-        max-height: 350px;
-        min-height: 150px;
-        object-fit: contain;
+        height: 250px;
+        object-fit: cover;
     }
 
     .card-body {
-        max-height: 200px;
-        min-height: 150px;
+        max-height: 350px;
     }
 </style>
 
 
-<section id="toys" class="bg-primary mt-5">
+<section id="toys" class="mt-5" style="background: #9552FD;">
     <div class="container-lg">
         <div class="text-center">
-            <h2>Pricing Plans</h2>
-            <p class="lead text-muted">Choose a pricing plan that suits you.</p>
+            <h2>Toys</h2>
+            <p>Choose a pricing plan that suits you.</p>
         </div>
-        <div class="row my-5 align-items-center justify-content-center">
-            {% for product in products %}
-            <div class=" col-lg mx-4 my-5">
-                <div class="card h-100" style="background-color: blueviolet;">
-                    <a href="{{ product.get_absolute_url }}">
-                        <img class="card-img-top img-fluid img-thumbnail" src="{{ product.image.url }}"
+        <div class="row mb-5 align-items-center justify-content-center">
+            {% for toy in toys %}
+            <div class="col-11 col-md-6  col-xl-3 my-5 text-dark">
+                <div class="card h-100" style="background-color: #ECC851;">
+                    <a href="{{ toy.get_absolute_url }}">
+                        <img class="card-img-top img-fluid img-thumbnail" src="{{ toy.image.url }}" alt="product image">
+                    </a>
+                    <div class="card-body">
+                        <a href="{{ toy.get_absolute_url }}">
+                            <h5 class="card-title text-decoration-none text-dark">{{ toy.title }}</h5>
+                        </a>
+                        <p class="card-text small">{{ toy.description }}</p>
+                        <span class="card-text">${{ toy.price }}</span>
+                        <div class="row justify-content-center my-3 mx-3">
+                            <a href="{{ toy.get_absolute_url }}" class="btn btn-danger">Buy
+                                Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+
+
+<section id="toys" class="mt-5" style="background: #9552FD;">
+    <div class="container-lg">
+        <div class="text-center">
+            <h2>Accessories</h2>
+            <p>Choose a pricing plan that suits you.</p>
+        </div>
+        <div class="row mb-5 align-items-center justify-content-center">
+            {% for accessory in accessories %}
+            <div class="col-11 col-md-6  col-xl-3 my-5 text-dark">
+                <div class="card h-100" style="background-color: #ECC851;">
+                    <a href="{{ accessory.get_absolute_url }}">
+                        <img class="card-img-top img-fluid img-thumbnail" src="{{ accessory.image.url }}"
                             alt="product image">
                     </a>
                     <div class="card-body">
-                        <h3 class="card-title">{{ product.title }}</h5>
-                            <p class="card-text">{{ product.description }}</p>
-                            <p class="card-text">${{ product.price }}</p>
+                        <h5 class="card-title">{{ accessory.title }}</h5>
+                        <p class="card-text small">{{ accessory.description }}</p>
+                        <p class="card-text my-3">${{ accessory.price }}</p>
                     </div>
                 </div>
             </div>
